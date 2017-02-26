@@ -1,0 +1,58 @@
+extends brackets
+snippet main "main() without args" b
+int main(){
+	${0:/* code */}
+	return 0;
+}
+endsnippet
+
+snippet maina "main() with args" b
+int main(int argc, char *argv[]){
+	${0:/* code */}
+}
+endsnippet
+
+snippet for "Multi-Line Loop" b
+for(${1:i}=0; $1<${2:Max}; $1${3:++}){
+	${4:/* code */}$0
+}
+endsnippet
+
+snippet fors "Single-Line Loop" b
+for(${1:i}=0; $1<${2:Max}; $1${3:++})
+	${4:/* code */}$0
+endsnippet
+
+snippet while "While Loop" b
+while(${1:...}){
+	${2:/* code */}$0
+}
+endsnippet
+
+snippet whiles "Single-Line While" b
+while(${1:...})
+	${2:/* code */}$0
+endsnippet
+
+# switch case - switch 
+snippet "swit?c?h?" "Switch - Case" br
+switch(${1:...}){
+	${2:/* cases */}
+	${3:default:
+		${4:/* code */}
+		break;}
+}
+endsnippet
+
+# switch case - case
+snippet "cas?e?" "Switch - Case" br
+case ${1:/* condition */}:
+	${2:/* code */}
+	break;
+$0
+endsnippet
+
+# c printf function
+snippet printf
+printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}
+endsnippet
