@@ -8,13 +8,18 @@ call vundle#begin()
 "--------- Plugins -----------
 
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+
 Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/fonts'
 
 "-----------------------------
@@ -23,8 +28,8 @@ filetype plugin indent on    " required
 
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▼'
 
 
 "========= YouCompleteMe =====================
@@ -64,15 +69,22 @@ let g:airline_right_alt_sep = ''
 
 "========= Vim Costom Settings ================
 set shell=/bin/bash
-syntax enable
-syntax on
+
+"----- appearence ------
 colo wombat256
-set cindent
+set smartindent
 set cursorline
 "set cursorcolumn
 set number
 set incsearch		" search when you type
 set laststatus=2	" always show the status line
+
+"----- behaviour -------
+syntax enable
+syntax on
+set tabstop=4
+set shiftwidth=4
+
 filetype plugin on
 
 "--------------- key mappings -----------
