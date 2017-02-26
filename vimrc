@@ -72,10 +72,10 @@ set shell=/bin/bash
 
 "----- appearence ------
 colo wombat256
-set smartindent
 set cursorline
 "set cursorcolumn
 set number
+set relativenumber
 set incsearch		" search when you type
 set laststatus=2	" always show the status line
 
@@ -84,6 +84,7 @@ syntax enable
 syntax on
 set tabstop=4
 set shiftwidth=4
+set smartindent
 
 filetype plugin on
 

@@ -74,7 +74,7 @@ set shell=/data/data/com.termux/files/usr/bin/bash
 
 "----- appearence ------
 colo wombat256
-set smartindent
+set relativenumber
 set cursorline
 "set cursorcolumn
 set number
@@ -86,6 +86,7 @@ syntax enable
 syntax on
 set tabstop=4
 set shiftwidth=4
+set smartindent
 
 filetype plugin on
 
