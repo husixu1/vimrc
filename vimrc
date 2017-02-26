@@ -76,8 +76,8 @@ set laststatus=2	" always show the status line
 filetype plugin on
 
 "--------------- key mappings -----------
-map <C-n> :NERDTreeToggle<CR>
-map <S-l> :tabN<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
+map <S-l> :tabn<CR>
 map <S-h> :tabp<CR>
 map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
