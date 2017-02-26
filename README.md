@@ -1,6 +1,7 @@
 # TO USE THIS FILE
 
 * put vimrc in your home dir (a.k.a. ~/)
+* put all directories into your ~/.vim
 * rename it to .vimrc
 * run `vim +PluginInstall`
 
