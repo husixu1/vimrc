@@ -35,7 +35,7 @@ while(${1:...})
 endsnippet
 
 # switch case - switch 
-snippet "swit?c?h?" "Switch - Case" br
+snippet "switc?h?" "Switch - Case" br
 switch(${1:...}){
 	${2:/* cases */}
 	${3:default:
@@ -54,5 +54,5 @@ endsnippet
 
 # c printf function
 snippet printf
-printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}
+printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
 endsnippet

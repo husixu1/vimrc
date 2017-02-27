@@ -22,6 +22,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/fonts'
 
+Plugin 'vim-syntastic/syntastic'
+
 "-----------------------------
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,7 +67,17 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+let g:airline#extensions#whitespace#enabled = 1
 
+"======== Syntastic ===========================
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+	\ "mode": "active",
+	\ "active_filetypes": ["c", "cpp", "python", "shell"],
+	\ "passive_filetypes": [] }
 
 "========= Vim Costom Settings ================
 set shell=/bin/bash
@@ -89,18 +101,24 @@ set smartindent
 filetype plugin on
 
 "--------------- key mappings -----------
+" nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
+
+" tab operation
 map <S-l> :tabn<CR>
 map <S-h> :tabp<CR>
 map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
+
+" file finder
 map <C-f> :e .<CR>
 
+" bracket completion
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
-
 inoremap <BS> <C-O>:call DelBracket()<CR><BS>
+inoremap <CR> <C-O>:call EnterBracket()<CR>
 
 "-------------- user functinos----------
 let s:brackets = { ')': '(', ']': '[', '}': '{' }
@@ -111,3 +129,15 @@ function DelBracket()
 		call feedkeys("\<C-O>x",'n')
 	end
 endfunction
+
+function EnterBracket()
+	let l:line = getline(".")
+	let l:currentChar = l:line[col(".")-1]
+	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
+		call feedkeys("\<CR>\<Up>\<Right>\<CR>",'n')
+	else
+		call feedkeys("\<CR>",'n')
+	end
+endfunction
+
+
