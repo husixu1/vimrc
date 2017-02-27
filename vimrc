@@ -96,14 +96,18 @@ map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
 map <C-f> :e .<CR>
 
-"inoremap <BS> <C-O>:call DelBracket()<CR><BS>
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+
+inoremap <BS> <C-O>:call DelBracket()<CR><BS>
 
 "-------------- user functinos----------
-"let s:brackets = { ')': '(', ']': '[', '}': '{' }
-"function DelBracket()
-"	let l:line = getline(".")
-"	let l:currentChar = l:line[col(".")-1]
-"	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
-"		call feedkeys("\<C-O>x",'n')
-"	end
-"endfunction
+let s:brackets = { ')': '(', ']': '[', '}': '{' }
+function DelBracket()
+	let l:line = getline(".")
+	let l:currentChar = l:line[col(".")-1]
+	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
+		call feedkeys("\<C-O>x",'n')
+	end
+endfunction
