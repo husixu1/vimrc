@@ -106,10 +106,11 @@ filetype plugin on
 map <C-n> :NERDTreeTabsToggle<CR>
 
 " tab operation
-map <S-l> :tabn<CR>
-map <S-h> :tabp<CR>
-map <F2> :tabnew<CR>
-map <F3> :tabclose<CR>
+map <F3> :tabn<CR>
+map <F2> :tabp<CR>
+map <F4> <C-w>T
+map <S-l> :tabnew<CR>
+map <S-h> :tabclose<CR>
 
 " file finder
 map <C-f> :e .<CR>
