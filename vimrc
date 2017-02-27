@@ -16,6 +16,7 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -114,30 +115,30 @@ map <F3> :tabclose<CR>
 map <C-f> :e .<CR>
 
 " bracket completion
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap <BS> <C-O>:call DelBracket()<CR><BS>
-inoremap <CR> <C-O>:call EnterBracket()<CR>
-
-"-------------- user functinos----------
-let s:brackets = { ')': '(', ']': '[', '}': '{' }
-function DelBracket()
-	let l:line = getline(".")
-	let l:currentChar = l:line[col(".")-1]
-	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
-		call feedkeys("\<C-O>x",'n')
-	end
-endfunction
-
-function EnterBracket()
-	let l:line = getline(".")
-	let l:currentChar = l:line[col(".")-1]
-	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
-		call feedkeys("\<CR>\<Up>\<Right>\<CR>",'n')
-	else
-		call feedkeys("\<CR>",'n')
-	end
-endfunction
-
+"inoremap ( ()<Esc>i
+"inoremap [ []<Esc>i
+"inoremap { {}<Esc>i
+"inoremap <BS> <C-O>:call DelBracket()<CR><BS>
+"inoremap <CR> <C-O>:call EnterBracket()<CR>
+"
+""-------------- user functinos----------
+"let s:brackets = { ')': '(', ']': '[', '}': '{' }
+"function DelBracket()
+"	let l:line = getline(".")
+"	let l:currentChar = l:line[col(".")-1]
+"	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
+"		call feedkeys("\<C-O>x",'n')
+"	end
+"endfunction
+"
+"function EnterBracket()
+"	let l:line = getline(".")
+"	let l:currentChar = l:line[col(".")-1]
+"	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
+"		call feedkeys("\<CR>\<Up>\<Right>\<CR>",'n')
+"	else
+"		call feedkeys("\<CR>",'n')
+"	end
+"endfunction
+"
 
