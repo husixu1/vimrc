@@ -1,32 +1,45 @@
-"======== Vundle ===========================
+"======== vim-plug ===========================
 set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-"--------- Plugins -----------
+call plug#begin('~/.vim/plugged')
+"--------- Post-buildup hooks-----
+function! InstallFont(info)
+	if a:info.status == 'installed' || a:info.force
+		!./install.sh
+	endif
+endfunction
 
-Plugin 'VundleVim/Vundle.vim'
+function! BuildYCM(info)
+	if a:info.status == 'installed' || a:info.force
+		!./install.py --clang-completer
+	endif
+endfunction
+"--------- plugs -----------------
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
-Plugin 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'powerline/fonts'
 
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+" visual --AAAA
+"               VVVV-- function 
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'powerline/fonts'
+Plug 'vim-syntastic/syntastic'
 
-Plugin 'vim-syntastic/syntastic'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 
-"-----------------------------
-call vundle#end()            " required
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+"----------------------------------
+call plug#end()            " required
 filetype plugin indent on    " required
 
 "========= NERDTree =========================
@@ -36,7 +49,7 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 
 
 "========= YouCompleteMe =====================
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/custom/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -69,6 +82,12 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline#extensions#whitespace#enabled = 1
+
+"======== indentLine =========================
+let g:loaded_indentLine = 1
+let g:indentLine_enabled = 1
+let g:indentLine_char = '│'
+let g:indentLine_setConceal = 0
 
 "======== Syntastic ===========================
 let g:syntastic_always_populate_loc_list = 1
