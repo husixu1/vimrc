@@ -3,6 +3,7 @@
 * put all directories into your ~/.vim
 * put vimrc in your home dir (a.k.a. ~/)
 * rename it to .vimrc
+* run `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 * run `vim +PlugInstall`
 
 ### YCM config
