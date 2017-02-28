@@ -7,13 +7,13 @@ call plug#begin('~/.vim/plugged')
 "--------- Post-buildup hooks-----
 function! InstallFont(info)
 	if a:info.status == 'installed' || a:info.force
-		!./install.sh
+		!bash ./install.sh
 	endif
 endfunction
 
 function! BuildYCM(info)
 	if a:info.status == 'installed' || a:info.force
-		!./install.py --clang-completer
+		!python ./install.py --clang-completer
 	endif
 endfunction
 "--------- plugs -----------------
@@ -37,6 +37,7 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'easymotion/vim-easymotion'
 
 "----------------------------------
 call plug#end()            " required
