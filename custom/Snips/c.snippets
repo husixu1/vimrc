@@ -40,7 +40,7 @@ switch(${1:...}){
 	${3:default:
 		${4:/* code */}
 		break;}
-}
+}$0
 endsnippet
 
 # switch case - case
@@ -49,6 +49,12 @@ case ${1:/* condition */}:
 	${2:/* code */}
 	break;
 $0
+endsnippet
+
+snippet "stru?c?t?" "struct typedef" br
+typedef struct _${1:name}{
+	${2:data}
+}$1;$0
 endsnippet
 
 snippet printf "C-printf function"
