@@ -46,7 +46,7 @@ filetype plugin indent on    " required
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeWinSize = 21
+let g:NERDTreeWinSize = 31
 let g:NERDTreeDirArrowCollapsible = '▼'
 
 
@@ -127,40 +127,12 @@ filetype plugin on
 map <C-n> :NERDTreeTabsToggle<CR>
 
 " tab operation
-map <F3> :tabn<CR>
-map <F2> :tabp<CR>
+map <F2> :tabn<CR>
+map <F3> :tabp<CR>
 map <F4> <C-w>T
 map <S-l> :tabnew<CR>
 map <S-h> :tabclose<CR>
 
 " file finder
 map <C-f> :e .<CR>
-
-" bracket completion
-"inoremap ( ()<Esc>i
-"inoremap [ []<Esc>i
-"inoremap { {}<Esc>i
-"inoremap <BS> <C-O>:call DelBracket()<CR><BS>
-"inoremap <CR> <C-O>:call EnterBracket()<CR>
-"
-""-------------- user functinos----------
-"let s:brackets = { ')': '(', ']': '[', '}': '{' }
-"function DelBracket()
-"	let l:line = getline(".")
-"	let l:currentChar = l:line[col(".")-1]
-"	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
-"		call feedkeys("\<C-O>x",'n')
-"	end
-"endfunction
-"
-"function EnterBracket()
-"	let l:line = getline(".")
-"	let l:currentChar = l:line[col(".")-1]
-"	if index([")","]","}"], l:currentChar) != -1 && s:brackets[l:currentChar] == l:line[col(".")-2]
-"		call feedkeys("\<CR>\<Up>\<Right>\<CR>",'n')
-"	else
-"		call feedkeys("\<CR>",'n')
-"	end
-"endfunction
-"
 
