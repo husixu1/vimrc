@@ -58,8 +58,8 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_select_completion = ['<C-j>', '<S-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
 
-command CppCheckOn let g:ycm_show_diagnostics_ui=1
-command CppCheckOff let g:ycm_show_diagnostics_ui=0
+let g:ycm_error_symbol = 'E>'
+let g:ycm_warning_symbol = 'W>'
 
 "========= UltiSnip =========================
 set rtp+=~/.vim/custom
@@ -101,7 +101,7 @@ let g:syntastic_mode_map = {
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
 	\ "passive_filetypes": [] }
 
-"========= Vim Costom Settings ================
+"========= Vim Custom Settings ================
 set shell=/bin/bash
 
 "----- appearence ------
@@ -127,11 +127,11 @@ filetype plugin on
 map <C-n> :NERDTreeTabsToggle<CR>
 
 " tab operation
-map <F2> :tabn<CR>
-map <F3> :tabp<CR>
+map <S-l> :tabn<CR>
+map <S-h> :tabp<CR>
 map <F4> <C-w>T
-map <S-l> :tabnew<CR>
-map <S-h> :tabclose<CR>
+map <F2> :tabnew<CR>
+map <F3> :tabclose<CR>
 
 " file finder
 map <C-f> :e .<CR>
