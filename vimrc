@@ -46,6 +46,7 @@ filetype plugin indent on    " required
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeWinSize = 21
 let g:NERDTreeDirArrowCollapsible = '▼'
 
 
