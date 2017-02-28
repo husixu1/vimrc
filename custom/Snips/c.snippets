@@ -51,7 +51,38 @@ case ${1:/* condition */}:
 $0
 endsnippet
 
-# c printf function
-snippet printf
+snippet printf "C-printf function"
 printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet ifndef "C guard"
+#ifndef ${1:...}
+#define $1
+
+$0
+
+#endif
+endsnippet
+
+
+snippet GPL "GPLv3 header"
+/********************************************************************
+Copyright `date +%Y` ${1:Sixu Hu} <${2:husixu1@hotmail.com}>
+
+This file is part of ${3:program}.
+
+$3 is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+$3 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+********************************************************************/
+$0
 endsnippet
