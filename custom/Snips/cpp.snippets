@@ -1,15 +1,14 @@
-extends brackets
 extends c
 
 snippet fori "Iteration Loop" 
 for(${1:auto ${2:iterator}} : ${3:container}){
-	${4:/* code */}
-}$0
+	${0:/* code */}
+}
 endsnippet
 
 snippet foris "Single-Line iteration Loop" 
 for(${1:auto ${2:iterator}} : ${3:container})
-	${4:/* code */}$0
+	${0:/* code */}
 endsnippet
 
 snippet class "Class Construction"
@@ -18,5 +17,5 @@ private:
 	${2:/* private */}
 public:
 	${3:/* public */}
-}$0
+}
 endsnippet

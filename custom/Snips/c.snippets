@@ -1,4 +1,3 @@
-extends brackets
 snippet main "main() without args" b
 int main(){
 	${0:/* code */}
@@ -14,24 +13,24 @@ endsnippet
 
 snippet for "Multi-Line Loop" b
 for(${1:int ${2:i}}=0; ${1/(\w+\s+)?(\w+)/$2/}<${3:Max}; ${1/(\w+\s+)?(\w+)/$2/}${4:++}){
-	${5:/* code */}
-}$0
+	${0:/* code */}
+}
 endsnippet
 
 snippet fors "Single-Line Loop" b
 for(${1:int ${2:i}}=0; ${1/(\w+\s+)?(\w+)/$2/}<${3:Max}; ${1/(\w+\s+)?(\w+)/$2/}${4:++})
-	${5:/* code */}$0
+	${0:/* code */}
 endsnippet
 
 snippet while "While Loop" b
 while(${1:...}){
-	${2:/* code */}$0
+	${0:/* code */}
 }
 endsnippet
 
 snippet whiles "Single-Line While" b
 while(${1:...})
-	${2:/* code */}$0
+	${0:/* code */}
 endsnippet
 
 # switch case - switch 
