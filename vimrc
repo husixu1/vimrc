@@ -1,3 +1,6 @@
+let g:System_ = 'Linux'
+"let g:System_ = 'Tremux'
+
 "======== vim-plug ===========================
 set nocompatible              " required
 filetype off                  " required
@@ -13,7 +16,11 @@ endfunction
 
 function! BuildYCM(info)
 	if a:info.status == 'installed' || a:info.force
-		!python ./install.py --clang-completer
+		if g:System_ == 'Linux'
+			!python ./install.py --clang-completer
+		elseif g:System == 'Termux'
+			!python ./install.py --clang-completer --system-libclang
+		endif
 	endif
 endfunction
 "--------- plugs -----------------
@@ -28,7 +35,7 @@ Plug 'powerline/fonts'
 
 Plug 'Yggdroot/indentLine'
 " visual --AAAA
-"               VVVV-- function 
+"               VVVV-- function
 
 Plug 'vim-syntastic/syntastic'
 
@@ -46,7 +53,11 @@ filetype plugin indent on    " required
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeWinSize = 31
+if g:System_ == 'Linux'
+	let g:NERDTreeWinSize = 31
+elseif g:System_ == 'Termux'
+	let g:NERDTreeWinSize = 21
+endif
 let g:NERDTreeDirArrowCollapsible = '▼'
 
 
@@ -79,10 +90,27 @@ let g:UltiSnipEditSplit = "normal"
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+if g:System_ == 'Linux'
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+elseif g:System == 'Termux'
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+	let g:airline_symbols = {}
+	let g:airline_symbols.crypt = '🔒'
+	let g:airline_symbols.linenr = '␊'
+	let g:airline_symbols.linenr = '␤'
+	let g:airline_symbols.maxlinenr = '☰'
+	let g:airline_symbols.branch = '⎇'
+	let g:airline_symbols.paste = 'ρ'
+	let g:airline_symbols.spell = 'Ꞩ'
+	let g:airline_symbols.notexists = '∄'
+	let g:airline_symbols.whitespace = 'Ξ'
+endif
 let g:airline#extensions#whitespace#enabled = 1
 
 "======== indentLine =========================
@@ -102,7 +130,11 @@ let g:syntastic_mode_map = {
 	\ "passive_filetypes": [] }
 
 "========= Vim Custom Settings ================
-set shell=/bin/bash
+if g:System_ == 'Linux'
+	set shell=/bin/bash
+elseif g:System_ == 'Termux'
+	set shell=/data/data/com.termux/files/usr/bin/bash
+endif
 
 "----- appearence ------
 colo wombat256
