@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# check necessary commands
+# _check necessary commands
 command -v vim > /dev/null 2>&1 || echo >&2 "vim not exist"
 command -v python > /dev/null 2>&1 || echo >&2 "python not exist"
 command -v curl > /dev/null 2>&1 || echo >&2 "curl not found"
@@ -9,7 +9,14 @@ echo "your \$HOME dir is $HOME"
 [ -d "$HOME/.vim" ] || echo "$HOME/.vim not exist, creating one ... "; mkdir -p "$HOME/.vim"
 [ -d "$HOME/.vim" ] || echo "$HOME/.vim/autoload not exist, creating one ..."; mkdir -p "$HOME/.vim/autoload"
 
-cp ./vimrc "$HOME/.vimrc"
+
+# move files
+echo 'input your system (currently support "Linux" and Termux):'
+read -r System
+
+echo "let g:System_=\'$System\'" >> "$HOME/.vimrc"
+
+echo ./vimrc >> "$HOME/.vimrc"
 cp -r ./custom "$HOME/.vim/custom"
 
 # install vim-plug

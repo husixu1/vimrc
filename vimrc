@@ -69,8 +69,8 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_select_completion = ['<C-j>', '<S-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
 
-let g:ycm_error_symbol = 'E>'
-let g:ycm_warning_symbol = 'W>'
+let g:ycm_error_symbol = "✗"
+let g:ycm_warning_symbol = "⚠"
 
 "========= UltiSnip =========================
 set rtp+=~/.vim/custom
@@ -125,6 +125,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_mode_map = {
 	\ "mode": "active",
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
@@ -160,6 +162,7 @@ filetype plugin on
 "--------------- key mappings -----------
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
+map <C-x> :SyntasticReset<CR>
 
 " tab operation
 map <S-l> :tabn<CR>
