@@ -1,5 +1,5 @@
-"let g:System_ = 'Linux'
-let g:System_ = 'Tremux'
+let g:System_ = 'Linux'
+"let g:System_ = 'Tremux'
 
 "======== vim-plug ===========================
 set nocompatible              " required
@@ -152,6 +152,8 @@ syntax on
 set tabstop=4
 set shiftwidth=4
 set smartindent
+set wildmode=longest,full
+set wildmenu
 
 filetype plugin on
 
