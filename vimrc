@@ -1,5 +1,5 @@
-let g:System_ = 'Linux'
-"let g:System_ = 'Tremux'
+"let g:System_ = 'Linux'
+let g:System_ = 'Tremux'
 
 "======== vim-plug ===========================
 set nocompatible              " required
@@ -18,7 +18,7 @@ function! BuildYCM(info)
 	if a:info.status == 'installed' || a:info.force
 		if g:System_ == 'Linux'
 			!python ./install.py --clang-completer
-		elseif g:System == 'Termux'
+		elseif g:System_ == 'Termux'
 			!python ./install.py --clang-completer --system-libclang
 		endif
 	endif
@@ -89,13 +89,14 @@ let g:UltiSnipEditSplit = "normal"
 "========= Airline ===========================
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 if g:System_ == 'Linux'
+	let g:airline_powerline_fonts = 1
 	let g:airline_left_sep = ''
 	let g:airline_left_alt_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_alt_sep = ''
-elseif g:System == 'Termux'
+elseif g:System_ == 'Termux'
+	let g:airline_powerline_fonts = 0
 	let g:airline_left_sep = ''
 	let g:airline_left_alt_sep = ''
 	let g:airline_right_sep = ''
