@@ -25,9 +25,11 @@ cp -r ./custom "$HOME/.vim/custom"
 
 vim +PlugInstall
 
-# install clewn
-cd ./clewn-1.15 || echo "clewn-1.15 not exist"; exit
-export vimdir="$HOME/.vim"
-./configure --prefix="HOME/.vim"
-./make && make install
-
+# install clewn (Termux currently not supported, unless rooted)
+if [ System == "Termux" ]
+then
+	cd ./clewn-1.15 || echo "clewn-1.15 not exist"; exit
+	export vimdir="$HOME/.vim"
+	./configure --prefix="HOME/.vim"
+	./make && make install
+fi
