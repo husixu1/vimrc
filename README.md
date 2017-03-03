@@ -23,10 +23,17 @@ run `./one-key-install.sh` WITHOUT root privilige
 
 ### Clewn installation
 
+#### on Linux
 * cd to clewn-1.5 dir
 * run `export vimdir=<your vim dir>` 
 * run `./configure --prefix=<build dir>`
 * run `make && make install`
 
-*Clewn build failed on Termux*
-
+#### on Termux
+* cd to clewn-1.5 dir
+* run `export vimdir=<your vim dir>` 
+* run `autoconf`
+* run `./configure --prefix=<build dir>`
+* add `#define USE_GETCWD` to the first line of misc.c
+* change the fist line of `script/install-sh` accordingly
+* run `make && make install`
