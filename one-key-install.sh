@@ -2,7 +2,7 @@
 
 echo 'input your system (currently support "Linux" and "Termux"):'
 read -r System
-case System in
+case $System in
 	"Linux")
 		;;
 	"Termux")
@@ -30,10 +30,12 @@ echo "your \$HOME dir is $HOME"
 
 # move files
 
-echo "let g:System_=\'$System\'" >> "$HOME/.vimrc"
+echo "let g:System_='$System'" >> "$HOME/.vimrc"
+cat ./vimrc >> "$HOME/.vimrc"
 
-echo ./vimrc >> "$HOME/.vimrc"
 cp -r ./custom "$HOME/.vim/custom"
+cp -r ./colors "$HOME/.vim/colors"
+
 
 # install vim-plug
 [ -f "$HOME/.vim/autoload/plug.vim" ] || curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
