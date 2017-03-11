@@ -44,14 +44,14 @@ cp -r ./colors "$HOME/.vim/colors"
 vim +PlugInstall
 
 # install clewn (Termux currently not supported, unless rooted)
-if [ System == "Linux" ]
+if [ "$System" == "Linux" ]
 then	
 	cp -r ./clewn-1.15 ./clewn || echo "clewn 1.15 not exist"; exit
 	cd ./clewn || echo "clewn 1.15 not exist"; exit
 	export vimdir="$HOME/.vim"
 	./configure --prefix="HOME/.vim"
 	./make && make install
-elif [ System == "Termux" ]
+elif [ "$System" == "Termux" ]
 then
 	echo "currently can't autobuild clewn on termux, please build it manually following README.md if you want to use it"
 fi
