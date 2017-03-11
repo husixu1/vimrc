@@ -38,23 +38,28 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-# You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
-# source code needs it.
-# THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
-# language to use when compiling headers. So it will guess. Badly. So C++
-# headers will be compiled as C headers. You don't want that so ALWAYS specify
-# a "-std=<something>".
-# For a C project, you would set this to something like 'c99' instead of
-# 'c++11'.
 '-std=c++11',
-# ...and the same thing goes for the magic -x option which specifies the
-# language that the files to be compiled are written in. This is mostly
-# relevant for c++ headers.
-# For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
 'c++',
-# This path will only work on OS X, but extra paths that don't exist are not
-# harmful
+'-isystem',
+'../BoostParts',
+'/System/Library/Frameworks/Python.framework/Headers',
+'-isystem',
+'../llvm/include',
+'-isystem',
+'../llvm/tools/clang/include',
+'-I',
+'.',
+'-I',
+'./ClangCompleter',
+'-isystem',
+'./tests/gmock/gtest',
+'-isystem',
+'./tests/gmock/gtest/include',
+'-isystem',
+'./tests/gmock',
+'-isystem',
+'./tests/gmock/include',
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
@@ -144,13 +149,6 @@ def FlagsForFile( filename, **kwargs ):
       compilation_info.compiler_flags_,
       compilation_info.compiler_working_dir_ )
 
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
-    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
   else:
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )

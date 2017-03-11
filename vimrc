@@ -174,3 +174,7 @@ map <F3> :tabclose<CR>
 " file finder
 map <C-f> :e .<CR>
 
+" easymotion
+let g:mapleader = ';'
+
+	
