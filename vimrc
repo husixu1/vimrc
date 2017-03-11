@@ -176,5 +176,6 @@ map <C-f> :e .<CR>
 
 " easymotion
 let g:mapleader = ';'
+map <Leader> <Plug>(easymotion-prefix)
+nmap <Leader>S <Plug>(easymotion-sn)
 
-	
