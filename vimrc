@@ -157,6 +157,8 @@ set smartindent
 set wildmode=longest,full
 set wildmenu
 
+" autoremove trailing whitespace when saving
+autocmd BufWritePre * %s/\s\+$//e
 filetype plugin on
 
 "--------------- key mappings -----------
