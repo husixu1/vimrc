@@ -179,3 +179,9 @@ let g:mapleader = ';'
 map <Leader> <Plug>(easymotion-prefix)
 nmap <Leader>S <Plug>(easymotion-sn)
 
+" you complete me jump
+nnoremap <leader>ji :YcmCompleter GoToInclude<CR>
+nnoremap <leader>jD :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+
+
