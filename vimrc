@@ -132,6 +132,8 @@ let g:syntastic_mode_map = {
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
 	\ "passive_filetypes": [] }
 
+"====== AutoPair ==============================
+let g:AutoPairsShortcutFastWrap = '<C-w>'
 "========= Vim Custom Settings ================
 if g:System_ == 'Linux'
 	set shell=/bin/bash
