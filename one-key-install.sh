@@ -45,7 +45,7 @@ vim +PlugInstall
 
 # install clewn (Termux currently not supported, unless rooted)
 if [ "$System" == "Linux" ]
-then	
+then
 	cp -r ./clewn-1.15 ./clewn || echo "clewn 1.15 not exist"; exit
 	cd ./clewn || echo "clewn 1.15 not exist"; exit
 	export vimdir="$HOME/.vim"
