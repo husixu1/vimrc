@@ -3,7 +3,6 @@ let g:System_ = 'Linux'
 
 "======== vim-plug ===========================
 set nocompatible              " required
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
@@ -131,7 +130,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_mode_map = {
 	\ "mode": "active",
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
-	\ "passive_filetypes": [] }
+	\ "passive_filetypes": ["asm"] }
 
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
