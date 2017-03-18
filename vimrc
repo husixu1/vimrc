@@ -161,6 +161,8 @@ set wildmenu
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
+" autodetect filetype
+autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
 
 "--------------- key mappings -----------
