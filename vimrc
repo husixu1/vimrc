@@ -44,6 +44,7 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
 
 "----------------------------------
 call plug#end()            " required
@@ -134,6 +135,19 @@ let g:syntastic_mode_map = {
 
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
+
+"====== incsearch ==============================
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 "========= Vim Custom Settings ================
 if g:System_ == 'Linux'
 	set shell=/bin/bash
@@ -158,6 +172,7 @@ set shiftwidth=4
 set smartindent
 set wildmode=longest,full
 set wildmenu
+set hlsearch
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
