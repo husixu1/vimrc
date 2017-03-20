@@ -11,7 +11,7 @@ function! InstallFont(info)
 	if a:info.status == 'installed' || a:info.force
 		!bash ./install.sh
 	endif
-endfunction
+endfunction this
 
 function! BuildYCM(info)
 	if a:info.status == 'installed' || a:info.force
@@ -136,26 +136,19 @@ let g:syntastic_mode_map = {
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
 
-"====== incsearch ==============================
+"====== incsearch =============================
 let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
+"==============================================
 "========= Vim Custom Settings ================
+"==============================================
 if g:System_ == 'Linux'
 	set shell=/bin/bash
 elseif g:System_ == 'Termux'
 	set shell=/data/data/com.termux/files/usr/bin/bash
 endif
 
-"----- appearence ------
+"--------------- appearence ------
 colo wombat256
 set cursorline
 "set cursorcolumn
@@ -164,7 +157,7 @@ set relativenumber
 set incsearch		" search when you type
 set laststatus=2	" always show the status line
 
-"----- behaviour -------
+"--------------- behaviour -------
 syntax enable
 syntax on
 set tabstop=4
@@ -180,7 +173,9 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
 
-"--------------- key mappings -----------
+"--------------- key mappings -----
+let g:mapleader = ';'
+
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-x> :SyntasticReset<CR>
@@ -196,7 +191,6 @@ map <F3> :tabclose<CR>
 map <C-f> :e .<CR>
 
 " easymotion
-let g:mapleader = ';'
 map <Leader> <Plug>(easymotion-prefix)
 nmap <Leader>S <Plug>(easymotion-sn)
 
@@ -205,4 +199,35 @@ nnoremap <leader>ji :YcmCompleter GoToInclude<CR>
 nnoremap <leader>jD :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 
+" incsearch map
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
+nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+
+"--------------- functions --------
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=4000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=500
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
