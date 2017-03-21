@@ -43,6 +43,8 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" do not update ycm once it functions properly
+"Plug 'Valloric/YouCompleteMe', { 'frozen':1, 'do': function('BuildYCM') }
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 
