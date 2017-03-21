@@ -27,6 +27,8 @@ run `./one-key-install.sh` WITHOUT root privilige( not tested, do not use it for
 * or-----> use the ycm\_extra\_conf.py in this repo insted (do not have to change anything)
 
 *if YCM SUFFERS AN SHUTDOWN, PLEASE RECOMPILE THE YCM CORE：*
+*if you have run vim +PlugUpdate, YCM CORE might be too old to ues, and should be recompiled manually*
+
 * in the ~/.vim/plugged/YouCompleteMe dir, run `python install.py --help` for help (usually if you only want C-family complete, run `python install.py --clang-completer`; and in Termux, run `python install.py --clang-completer --system-libclang`)
 
 ### Clewn installation (Optional)

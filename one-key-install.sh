@@ -43,7 +43,7 @@ cp -r ./colors "$HOME/.vim/colors"
 
 vim +PlugInstall
 
-# install clewn (Termux currently not supported, unless rooted)
+# install clewn (Termux currently not supported)
 if [ "$System" == "Linux" ]
 then
 	cp -r ./clewn-1.15 ./clewn || echo "clewn 1.15 not exist"; exit
