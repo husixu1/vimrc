@@ -33,8 +33,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'powerline/fonts'
 
 Plug 'Yggdroot/indentLine'
-" visual --AAAA
-"               VVVV-- function
+
+" visual %%%%%%%%%%%%%%%%%
+" %%%%%%%%%%%%%%% function
 
 Plug 'vim-syntastic/syntastic'
 
@@ -42,11 +43,11 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-" do not update ycm once it functions properly
-"Plug 'Valloric/YouCompleteMe', { 'frozen':1, 'do': function('BuildYCM') }
+"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 "----------------------------------
 call plug#end()            " required
@@ -75,6 +76,11 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_error_symbol = "✗"
 let g:ycm_warning_symbol = "⚠"
 
+" Add triggers to ycm for LaTeX-Box autocompletion
+let g:ycm_semantic_triggers = {
+\  'tex'  : ['{'],
+\ }
+
 "========= UltiSnip =========================
 set rtp+=~/.vim/custom
 let g:UltiSnipsUsePythonVersion = 3
@@ -92,6 +98,7 @@ let g:UltiSnipEditSplit = "normal"
 "========= Airline ===========================
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_close_button = 1
 if g:System_ == 'Linux'
 	let g:airline_powerline_fonts = 1
 	let g:airline_left_sep = ''
