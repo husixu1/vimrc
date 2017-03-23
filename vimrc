@@ -140,7 +140,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_mode_map = {
 	\ "mode": "active",
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
-	\ "passive_filetypes": ["asm"] }
+	\ "passive_filetypes": ["asm", "tex"] }
 
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
@@ -223,20 +223,20 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
 "--------------- functions --------
 function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
+	let @/ = ''
+	if exists('#auto_highlight')
+		au! auto_highlight
+		augroup! auto_highlight
+		setl updatetime=4000
+		echo 'Highlight current word: off'
+		return 0
+	else
+		augroup auto_highlight
+			au!
+			au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+		augroup end
+		setl updatetime=500
+		echo 'Highlight current word: ON'
+		return 1
+	endif
 endfunction
