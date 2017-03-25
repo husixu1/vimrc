@@ -48,6 +48,7 @@ Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'farmergreg/vim-lastplace'
 
 "----------------------------------
 call plug#end()            " required
