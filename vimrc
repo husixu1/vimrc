@@ -171,6 +171,7 @@ set cursorline
 set number
 set relativenumber
 set incsearch		" search when you type
+set hlsearch
 set laststatus=2	" always show the status line
 
 "--------------- behaviour -------
@@ -181,7 +182,6 @@ set shiftwidth=4
 set smartindent
 set wildmode=longest,full
 set wildmenu
-set hlsearch
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
@@ -224,7 +224,7 @@ map g/ <Plug>(incsearch-stay)
 
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
-nmap <Leader>S <Plug>(easymotion-sn)
+nmap <Leader>S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
