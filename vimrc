@@ -45,8 +45,8 @@ Plug 'jiangmiao/auto-pairs'
 
 "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
-Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'farmergreg/vim-lastplace'
 
@@ -146,8 +146,13 @@ let g:syntastic_mode_map = {
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
 
+"====== Easymotion ============================
+let g:EasyMotion_move_highlight = 0
+
 "====== incsearch =============================
 let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#separate_highlight = 1
+let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
 
 "==============================================
 "========= Vim Custom Settings ================
@@ -157,6 +162,7 @@ if g:System_ == 'Linux'
 elseif g:System_ == 'Termux'
 	set shell=/data/data/com.termux/files/usr/bin/bash
 endif
+set term=screen-256color
 
 "--------------- appearence ------
 colo wombat256
@@ -200,10 +206,6 @@ map <F3> :tabclose<CR>
 " file finder
 map <C-f> :e .<CR>
 
-" easymotion
-map <Leader> <Plug>(easymotion-prefix)
-nmap <Leader>S <Plug>(easymotion-sn)
-
 " you complete me jump
 nnoremap <leader>ji :YcmCompleter GoToInclude<CR>
 nnoremap <leader>jD :YcmCompleter GoToDeclaration<CR>
@@ -219,6 +221,10 @@ map g# <Plug>(incsearch-nohl-g#)
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" easymotion
+map <Leader> <Plug>(easymotion-prefix)
+nmap <Leader>S <Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
