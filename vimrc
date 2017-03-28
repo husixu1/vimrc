@@ -182,6 +182,7 @@ set shiftwidth=4
 set smartindent
 set wildmode=longest,full
 set wildmenu
+set showmode
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
@@ -191,6 +192,7 @@ filetype plugin on
 
 "--------------- key mappings -----
 let g:mapleader = ';'
+set pastetoggle=<F1>
 
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
