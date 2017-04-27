@@ -20,7 +20,7 @@ let colors_name = "wombat256"
 
 " General colors
 hi Normal		ctermfg=254		ctermbg=234		cterm=none		guifg=#f6f3e8	guibg=#242424	gui=none
-hi Cursor		ctermfg=none	ctermbg=241		cterm=none		guifg=NONE		guibg=#656565	gui=none
+hi Cursor		ctermfg=none	ctermbg=33		cterm=none		guifg=NONE		guibg=#0087ff	gui=none
 hi Visual		ctermfg=7		ctermbg=238		cterm=none		guifg=#f6f3e8	guibg=#444444	gui=none
 " hi VisualNOS
 " hi Search
@@ -57,7 +57,7 @@ hi Comment		ctermfg=246		cterm=none		guifg=#99968b	gui=italic
 hi Todo			ctermfg=245		cterm=none		guifg=#8f8f8f	gui=italic
 
 
-hi YcmErrorSign ctermbg=169 
+hi YcmErrorSign ctermbg=169
 hi YcmWarningSign ctermbg=192
 hi YcmErrorSection ctermbg=134
 hi YcmWarningSection ctermbg=169

@@ -99,7 +99,7 @@ let g:UltiSnipEditSplit = "normal"
 "========= Airline ===========================
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#show_close_button = 0
 if g:System_ == 'Linux'
 	let g:airline_powerline_fonts = 1
 	let g:airline_left_sep = ''
@@ -196,7 +196,7 @@ set pastetoggle=<F1>
 
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
-map <C-x> :SyntasticReset<CR>
+map <C-c> :SyntasticReset<CR>
 
 " tab operation
 map <S-l> :tabn<CR>
