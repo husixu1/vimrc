@@ -31,11 +31,12 @@ run `./one-key-install.sh` WITHOUT root privilige( not tested, do not use it for
 * once YCM functions normally, it's better to froze it from updating(add 'frozen' to ycm config in .vimrc). Updating YCM is somehow possible to cause a staring failure (fixable, though).
 
 #### known issues:
-*if Ycm didn't function normally, run :YcmDebugInfo and see corresponding file for debug info*
-*if YCM SUFFERS AN SHUTDOWN, PLEASE RECOMPILE THE YCM CORE：*
-*if you have run vim +PlugUpdate, YCM CORE might be too old to use, and should be recompiled manually*
-*sometimes use system libclang fix the problem (and it's a must for Temux users)*
-*if libtinfo missing, install it (from AUR for archlinux users), link it to a correct filename according to the debug info, and recompile ycm core*
+* if Ycm didn't function normally, run :YcmDebugInfo and see corresponding file for debug info
+* if YCM SUFFERS AN SHUTDOWN, PLEASE RECOMPILE THE YCM CORE：
+* if you have run vim +PlugUpdate, YCM CORE might be too old to use, and should be recompiled manually
+* sometimes use system libclang fix the problem (and it's a must for Temux users)
+* if libtinfo missing, install it (from AUR for archlinux users), link it to a correct filename according to the debug info, and recompile ycm core
+* if libtinfo is still missing after the yaourt installation, install ncurses5-compat-libs from yaourt
 
 ### Clewn installation (Optional)
 
