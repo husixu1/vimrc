@@ -22,6 +22,12 @@ function! BuildYCM(info)
 		endif
 	endif
 endfunction
+
+function! BuildVimProc(info)
+	if a:info.status == 'installed' || a:info.force
+		!make
+	endif
+endfunction
 "--------- plugs -----------------
 
 Plug 'scrooloose/nerdtree'
@@ -30,7 +36,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'powerline/fonts'
+Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
 Plug 'Yggdroot/indentLine'
@@ -53,6 +59,8 @@ Plug 'farmergreg/vim-lastplace'
 
 Plug 'cohama/agit.vim'
 
+Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
+Plug 'Shougo/vimshell.vim'
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -205,6 +213,9 @@ map <C-c> :SyntasticReset<CR>
 
 " agit show
 map <C-a> :Agit<CR>
+
+" VimShell
+map <C-s> :VimShell<CR>
 
 " tab operation
 map <S-l> :tabn<CR>
