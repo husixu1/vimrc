@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'powerline/fonts'
+Plug 'idanarye/vim-merginal'
 
 Plug 'Yggdroot/indentLine'
 
@@ -49,6 +50,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'farmergreg/vim-lastplace'
+
+Plug 'cohama/agit.vim'
 
 "----------------------------------
 call plug#end()            " required
@@ -196,7 +199,12 @@ set pastetoggle=<F1>
 
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
+
+" Syntastic reset
 map <C-c> :SyntasticReset<CR>
+
+" agit show
+map <C-a> :Agit<CR>
 
 " tab operation
 map <S-l> :tabn<CR>
