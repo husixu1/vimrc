@@ -40,6 +40,7 @@ Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
 Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 
 " visual %%%%%%%%%%%%%%%%%
 " %%%%%%%%%%%%%%% function
@@ -137,11 +138,11 @@ endif
 let g:airline#extensions#whitespace#enabled = 1
 
 "======== indentLine =========================
+let g:indentLine_loaded = 1
 let g:loaded_indentLine = 1
 let g:indentLine_enabled = 1
 let g:indentLine_char = '│'
-let g:indentLine_setConceal = 0
-
+let g:indentLine_leadingSpaceEnabled = 1
 "======== Syntastic ===========================
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -164,6 +165,10 @@ let g:EasyMotion_move_highlight = 0
 let g:incsearch#auto_nohlsearch = 1
 let g:incsearch#separate_highlight = 1
 let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
+
+"====== TagBar ================================
+let g:tagbar_left = 1
+let g:tagbar_iconchars = ['▶', '▼']
 
 "==============================================
 "========= Vim Custom Settings ================
@@ -207,6 +212,9 @@ set pastetoggle=<F1>
 
 " nerdTree toggle
 map <C-n> :NERDTreeTabsToggle<CR>
+
+" tagbar toggle
+map <C-m> :TagbarToggle<CR>
 
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>
