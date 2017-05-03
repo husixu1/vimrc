@@ -169,8 +169,8 @@ let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
 "====== TagBar ================================
 let g:tagbar_left = 0
 let g:tagbar_iconchars = ['▶', '▼']
-autocmd VimEnter * nested :call tagbar#autoopen(1)
-autocmd BufEnter * nested :call tagbar#autoopen(1)
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
+"autocmd BufEnter * nested :call tagbar#autoopen(1)
 
 "==============================================
 "========= Vim Custom Settings ================
