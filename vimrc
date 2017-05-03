@@ -1,5 +1,5 @@
 let g:System_ = 'Linux'
-"let g:System_ = 'Tremux'
+"let g:System_ = 'Termux'
 
 "======== vim-plug ===========================
 set nocompatible              " required
