@@ -216,7 +216,7 @@ set pastetoggle=<F1>
 map <C-n> :NERDTreeTabsToggle<CR>
 
 " tagbar toggle
-map <C-m> :TagbarToggle<CR>
+map <C-t> :TagbarToggle<CR>
 
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>
