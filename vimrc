@@ -39,7 +39,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 
 " visual %%%%%%%%%%%%%%%%%
@@ -138,11 +139,19 @@ endif
 let g:airline#extensions#whitespace#enabled = 1
 
 "======== indentLine =========================
-let g:indentLine_loaded = 1
-let g:loaded_indentLine = 1
-let g:indentLine_enabled = 1
-let g:indentLine_char = '│'
-let g:indentLine_leadingSpaceEnabled = 1
+"let g:indentLine_loaded = 1
+"let g:loaded_indentLine = 1
+"let g:indentLine_enabled = 1
+"let g:indentLine_char = '│'
+"let g:indentLine_leadingSpaceEnabled = 1
+
+"======== vim-indent guides===================
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_color_change_percent = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_default_mapping = 0
+
 "======== Syntastic ===========================
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -218,6 +227,9 @@ map <C-n> :NERDTreeTabsToggle<CR>
 " tagbar toggle
 map <C-t> :TagbarToggle<CR>
 
+" identGuide Show
+map <C-i> <Plug>IndentGuidesToggle
+
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>
 
@@ -227,6 +239,9 @@ map <C-a> :Agit<CR>
 " VimShell
 map <C-s> :VimShell<CR>
 
+" file finder
+map <C-f> :e .<CR>
+
 " tab operation
 map <S-l> :tabn<CR>
 map <S-h> :tabp<CR>
@@ -234,8 +249,6 @@ map <F4> <C-w>T
 map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
 
-" file finder
-map <C-f> :e .<CR>
 
 " you complete me jump
 nnoremap <leader>ji :YcmCompleter GoToInclude<CR>

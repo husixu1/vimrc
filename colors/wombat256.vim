@@ -56,11 +56,16 @@ hi String		ctermfg=113		cterm=none		guifg=#95e454	gui=italic
 hi Comment		ctermfg=246		cterm=none		guifg=#99968b	gui=italic
 hi Todo			ctermfg=245		cterm=none		guifg=#8f8f8f	gui=italic
 
-
+"==== Plugin-related colors ============
+"=======================================
 hi YcmErrorSign ctermbg=169
 hi YcmWarningSign ctermbg=192
 hi YcmErrorSection ctermbg=134
 hi YcmWarningSection ctermbg=169
+
+hi IndentGuidesOdd  ctermbg=238
+hi IndentGuidesEven ctermbg=236
+"=======================================
 
 " Links
 hi! link FoldColumn		Folded
