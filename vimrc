@@ -65,6 +65,7 @@ Plug 'cohama/agit.vim'
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
 Plug 'Shougo/vimshell.vim'
+Plug 'ashisha/image.vim'										"needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on    " required
