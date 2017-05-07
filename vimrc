@@ -249,6 +249,8 @@ map <C-f> :e .<CR>
 " tab operation
 map <S-l> :tabn<CR>
 map <S-h> :tabp<CR>
+map <C-S-l> :tabm+1<CR>
+map <C-S-h> :tabm-1<CR>
 map <F4> <C-w>T
 map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
