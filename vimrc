@@ -89,9 +89,13 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_select_completion = ['<C-j>', '<S-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
 let g:ycm_complete_in_comments = 1
+" disables the check of ycm and uses syntastic insted
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
 
-let g:ycm_error_symbol = "✗"
-let g:ycm_warning_symbol = "⚠"
+let g:ycm_error_symbol = "-✗"
+let g:ycm_warning_symbol = "-⚠"
 
 " Add triggers to ycm for LaTeX-Box autocompletion
 let g:ycm_semantic_triggers = {
