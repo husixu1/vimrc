@@ -37,21 +37,3 @@ run `./one-key-install.sh` WITHOUT root privilige.
 * sometimes use system libclang fix the problem (and it's a must for Temux users)
 * if libtinfo missing, install it (from AUR for archlinux users), link it to a correct filename according to the debug info, and recompile ycm core
 * if libtinfo is still missing after the yaourt installation, install ncurses5-compat-libs from yaourt
-
-### Clewn installation (Optional)
-
-#### on Linux
-* cd to clewn-1.5 dir
-* run `export vimdir=<your vim dir>`
-* run `./configure --prefix=<build dir>`
-* run `make && make install`
-
-#### on Termux
-* cd to clewn-1.5 dir
-* run `export vimdir=<your vim dir>`
-* run `autoconf`
-* run `./configure --prefix=<build dir>`
-* add `#define USE_GETCWD` to the first line of misc.c
-* change the fist line of `script/install-sh` accordingly
-* run `make && make install`
-
