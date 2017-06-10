@@ -24,7 +24,7 @@ done
 
 echo "your \$HOME dir is $HOME, starting installation? [y/N]: "
 read -r ans
-if [[ ans != "y" ]]
+if [[ $ans != "y" ]]
 then
 	echo "Abort"
 	exit 0
