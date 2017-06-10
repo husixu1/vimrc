@@ -1,3 +1,8 @@
+snippet #inc "#include< ... >" b
+#include<${1:...}>
+$0
+endsnippet
+
 snippet main "main() without args" b
 int main(){
 	${0:/* code */}
@@ -33,8 +38,8 @@ while(${1:...})
 	${0:/* code */}
 endsnippet
 
-# switch case - switch 
-snippet "switc?h?" "Switch - Case" br
+# switch case - switch
+snippet "swit" "Switch - Case" b
 switch(${1:...}){
 	${2:/* cases */}
 	${3:default:
@@ -44,14 +49,14 @@ switch(${1:...}){
 endsnippet
 
 # switch case - case
-snippet "cas?e?" "Switch - Case" br
+snippet "case" "Switch - Case" b
 case ${1:/* condition */}:
 	${2:/* code */}
 	break;
 $0
 endsnippet
 
-snippet "stru?c?t?" "struct typedef" br
+snippet "struct" "struct typedef" b
 typedef struct _${1:name}{
 	${2:data}
 }$1;$0

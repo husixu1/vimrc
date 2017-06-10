@@ -1,0 +1,20 @@
+snippet "s(tart)?" "start the whole file"	br
+.386
+
+STACK SEGMENT USE16 PARA STACK
+		${1:SS	1024 DUP(0)}
+STACK ENDS
+
+${2:${3:DATA} SEGMENT USE16 PARA PUBLIC
+		${4}
+$3 ENDS}
+
+${4:CODE} SEGMENT USE16 PARA
+ASSUME CS:CODE, SS:STACK${3/.+/?0:, DS\:$0/}
+${5:START}:
+		${3/.+/?0:mov		ax, $0/}
+		${3/.+/?0:mov		ds, ax/}
+		$0
+$4 ENDS
+END $5:
+endsnippet

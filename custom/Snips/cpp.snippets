@@ -1,12 +1,12 @@
 extends c
 
-snippet fori "Iteration Loop" 
+snippet fori "Iteration Loop"
 for(${1:auto ${2:iterator}} : ${3:container}){
 	${0:/* code */}
 }
 endsnippet
 
-snippet foris "Single-Line iteration Loop" 
+snippet foris "Single-Line iteration Loop"
 for(${1:auto ${2:iterator}} : ${3:container})
 	${0:/* code */}
 endsnippet
@@ -29,4 +29,9 @@ snippet "(name|nm)" "C++ namespace" rb
 namespace ${1:name}{
 	${2:/* data */}
 }
+endsnippet
+
+snippet using "using namespace" b
+using namespace ${1:std};
+$0
 endsnippet
