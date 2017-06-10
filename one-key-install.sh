@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# makedepend
+tools=(vim git python curl gdb automake autoconf make)
+
 echo 'input your system (currently support "Linux" and "Termux"):'
 read -r System
 case $System in
@@ -9,48 +12,47 @@ case $System in
 		;;
 	*)
 		echo "System unidentified"
-		exit
+		exit 1
 		;;
 esac
 
-# _check necessary commands
-command -v vim > /dev/null 2>&1			|| { echo >&2 "vim not exist"; exit 0; }
-command -v git > /dev/null 2>&1			|| { echo >&2 "git not found"; exit 0; }
-command -v python > /dev/null 2>&1		|| { echo >&2 "python not exist"; exit 0; }
-command -v curl > /dev/null 2>&1		|| { echo >&2 "curl not found"; exit 0; }
-command -v gdb > /dev/null 2>&1			|| { echo >&2 "gdb not found"; exit 0; }
-command -v automake > /dev/null 2>&1	|| { echo >&2 "automake not found"; exit 0; }
-command -v autoconf > /dev/null 2>&1	|| { echo >&2 "autoconf not found"; exit 0; }
-command -v make > /dev/null 2>&1		|| { echo >&2 "make not found"; exit 0; }
+# _check necessary tools
+for tool in ${tools[*]}
+do
+	command -v $tool > /dev/null 2>&1 || { echo >&2 "$tool does not exist"; exit 0; }
+done
 
-echo "your \$HOME dir is $HOME"
-[ -d "$HOME/.vim" ] || echo "$HOME/.vim not exist, creating one ... "; mkdir -p "$HOME/.vim"
-[ -d "$HOME/.vim" ] || echo "$HOME/.vim/autoload not exist, creating one ..."; mkdir -p "$HOME/.vim/autoload"
+echo "your \$HOME dir is $HOME, starting installation? [y/N]: "
+read -r ans
+if [[ ans != "y" ]]
+then
+	echo "Abort"
+	exit 0
+fi
+
+# create directories
+[ -d "$HOME/.vim" ] \
+|| echo "$HOME/.vim not exist, creating one ... "; mkdir -p "$HOME/.vim" \
+|| { echo "cannot create directory"; exit 1; }
+
+[ -d "$HOME/.vim" ] \
+|| echo "$HOME/.vim/autoload not exist, creating one ..."; mkdir -p "$HOME/.vim/autoload" \
+|| exit 1
 
 # move files
-
 echo "let g:System_='$System'" >> "$HOME/.vimrc"
 cat ./vimrc >> "$HOME/.vimrc"
 
 cp -r ./custom "$HOME/.vim/custom"
 cp -r ./colors "$HOME/.vim/colors"
 
-
 # install vim-plug
-[ -f "$HOME/.vim/autoload/plug.vim" ] || curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-[ -f "$HOME/.vim/autoload/plug.vim" ] || { echo "vim-plug download failed, please change the url or download manually ... "; exit 0; }
+[ -f "$HOME/.vim/autoload/plug.vim" ] \
+|| curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+|| { echo "vim-plug download failed, please change the url or download manually ... "; exit 0; }
+
+[ -f "$HOME/.vim/autoload/plug.vim" ] \
+|| { echo "vim-plug download failed, please change the url or download manually ... "; exit 0; }
 
 vim +PlugInstall
 
-# install clewn (Termux currently not supported)
-if [ "$System" == "Linux" ]
-then
-	cp -r ./clewn-1.15 ./clewn || echo "clewn 1.15 not exist"; exit
-	cd ./clewn || echo "clewn 1.15 not exist"; exit
-	export vimdir="$HOME/.vim"
-	./configure --prefix="HOME/.vim"
-	./make && make install
-elif [ "$System" == "Termux" ]
-then
-	echo "currently can't autobuild clewn on termux, please build it manually following README.md if you want to use it"
-fi
