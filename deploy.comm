@@ -6,15 +6,34 @@ echo "your \$HOME dir is $HOME, starting installation ... "
 sleep 3
 
 # backing up and create directories
-[ -d "$HOME/.vim" ] \
-&& { echo "it seems that your $HOME/.vim already exist, now backing it up as $HOME/vim.bak";
-mv $HOME/.vim $HOME/vim.bak || { echo "failed to backup, exiting"; exit 1; } }
+[ -d "$HOME/.vim" ] && {
+	echo -n "it seems that your $HOME/.vim already exist, backing it up as $HOME/vim.bak? [Y/n] ";
+	read -r ans
+	case $ans in
+		"n")
+			:
+			;;
+		*)
+			mv $HOME/.vim $HOME/vim.bak || { echo "failed to backup, exiting"; exit 1; }
+			;;
+	esac
+}
 
 mkdir -p "$HOME/.vim" || { echo "cannot create directory"; exit 1; }
 
-[ -f "$HOME/.vimrc" ] \
-&& { echo "it seems that your $HOME/.vimrc already exist, now backing it up as $HOME/vimrc.bak";
-mv $HOME/.vimrc $HOME/vimrc.bak || { echo "failed to backup, exiting"; exit 1; } }
+[ -f "$HOME/.vimrc" ] && {
+	echo -n "it seems that your $HOME/.vimrc already exist, backing it up as $HOME/vimrc.bak? [Y/n] ";
+	read -r ans
+	case $ans in
+		"n")
+			echo "not backing up, nothing to be done, exiting ... "
+			exit 1
+			;;
+		*)
+			mv $HOME/.vimrc $HOME/vimrc.bak || { echo "failed to backup, exiting"; exit 1; }
+			;;
+	esac
+}
 
 mkdir -p "$HOME/.vim/autoload" || exit 1
 
