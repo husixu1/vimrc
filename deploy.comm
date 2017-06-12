@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "your \$HOME dir is $HOME, starting installation ... "
+sleep 3
+
+# backing up and create directories
+[ -d "$HOME/.vim" ] \
+&& { echo "it seems that your $HOME/.vim already exist, now backing it up as $HOME/vim.bak";
+mv $HOME/.vim $HOME/vim.bak || { echo "failed to backup, exiting"; exit 1; } }
+
+mkdir -p "$HOME/.vim" || { echo "cannot create directory"; exit 1; }
+
+[ -d "$HOME/.vim" ] \
+&& { echo "it seems that your $HOME/.vimrc already exist, now backing it up as $HOME/vimrc.bak";
+mv $HOME/.vimrc $HOME/vimrc.bak || { echo "failed to backup, exiting"; exit 1; } }
+
+mkdir -p "$HOME/.vim/autoload" || exit 1
+
+# move files
+echo "let g:System_='$System'" >> "$HOME/.vimrc"
+cat ./vimrc | sed -n {5~1p} >> "$HOME/.vimrc"
+
+cp -r ./custom "$HOME/.vim/custom"
+cp -r ./colors "$HOME/.vim/colors"
+
+# install vim-plug
+[ -f "$HOME/.vim/autoload/plug.vim" ] \
+|| curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+|| { echo "vim-plug download failed, please change the url or download manually ... "; exit 0; }
+
+[ -f "$HOME/.vim/autoload/plug.vim" ] \
+|| { echo "vim-plug download failed, please change the url or download manually ... "; exit 0; }
+
+vim +PlugInstall
+
