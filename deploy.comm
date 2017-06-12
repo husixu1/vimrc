@@ -1,5 +1,7 @@
 #!/bin/bash
 
+currentDir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd )
+
 echo "your \$HOME dir is $HOME, starting installation ... "
 sleep 3
 
@@ -18,10 +20,10 @@ mkdir -p "$HOME/.vim/autoload" || exit 1
 
 # move files
 echo "let g:System_='$System'" >> "$HOME/.vimrc"
-cat ./vimrc | sed -n {5~1p} >> "$HOME/.vimrc"
+cat $currentDir/vimrc | sed -n {5~1p} >> "$HOME/.vimrc"
 
-cp -r ./custom "$HOME/.vim/custom"
-cp -r ./colors "$HOME/.vim/colors"
+cp -r $currentDir/custom "$HOME/.vim/custom"
+cp -r $currentDir/colors "$HOME/.vim/colors"
 
 # install vim-plug
 [ -f "$HOME/.vim/autoload/plug.vim" ] \
