@@ -10,7 +10,7 @@ mv $HOME/.vim $HOME/vim.bak || { echo "failed to backup, exiting"; exit 1; } }
 
 mkdir -p "$HOME/.vim" || { echo "cannot create directory"; exit 1; }
 
-[ -d "$HOME/.vim" ] \
+[ -f "$HOME/.vimrc" ] \
 && { echo "it seems that your $HOME/.vimrc already exist, now backing it up as $HOME/vimrc.bak";
 mv $HOME/.vimrc $HOME/vimrc.bak || { echo "failed to backup, exiting"; exit 1; } }
 
