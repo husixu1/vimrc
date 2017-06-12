@@ -1,5 +1,7 @@
-let g:System_ = 'Linux'
+"%%%%% DO NOT MODIFY THIS PART %%%%%%
+"let g:System_ = 'Linux'
 "let g:System_ = 'Termux'
+"%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
 "======== vim-plug ===========================
 set nocompatible              " required

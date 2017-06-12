@@ -3,32 +3,27 @@
 # makedepend
 tools=(vim git python curl gdb automake autoconf make)
 
-echo 'input your system (currently support "Linux" and "Termux"):'
-read -r System
-case $System in
-	"Linux")
-		;;
-	"Termux")
-		;;
-	*)
-		echo "System unidentified"
-		exit 1
-		;;
-esac
+System=Linux
 
 # _check necessary tools
 for tool in ${tools[*]}
 do
-	command -v $tool > /dev/null 2>&1 || { echo >&2 "$tool does not exist"; exit 0; }
+	if ! command -v $tool > /dev/null 2>&1
+	then
+		echo >&2 "$tool does not exist, install? [y/N]"
+		read -r ans
+		case $ans in
+			"y")
+				sudo pacman -S $tool || { echo "$tool installation failed. exiting ... "; exit 1; }
+				;;
+			*)
+				exit 1
+				;;
+		esac
+	fi
 done
 
-echo "your \$HOME dir is $HOME, starting installation? [y/N]: "
-read -r ans
-if [[ $ans != "y" ]]
-then
-	echo "Abort"
-	exit 0
-fi
+echo "your \$HOME dir is $HOME, starting installation ... "
 
 # create directories
 [ -d "$HOME/.vim" ] \
@@ -41,7 +36,7 @@ fi
 
 # move files
 echo "let g:System_='$System'" >> "$HOME/.vimrc"
-cat ./vimrc >> "$HOME/.vimrc"
+cat ./vimrc | sed -n {5~1p} >> "$HOME/.vimrc"
 
 cp -r ./custom "$HOME/.vim/custom"
 cp -r ./colors "$HOME/.vim/colors"

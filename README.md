@@ -9,7 +9,9 @@ to use it, follow the instructions below
 
 ---
 
-run `./deploy.sh` WITHOUT root privilige.
+run `./deploy.<platform>.sh` WITHOUT root privilige.
+
+<platform> can be archlinux or termux
 
 ## manual-installation
 
