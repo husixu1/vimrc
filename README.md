@@ -9,7 +9,7 @@ to use it, follow the instructions below
 
 ---
 
-run `./one-key-install.sh` WITHOUT root privilige.
+run `./deploy.sh` WITHOUT root privilige.
 
 ## manual-installation
 
