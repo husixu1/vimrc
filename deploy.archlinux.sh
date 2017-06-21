@@ -13,14 +13,14 @@ for tool in ${tools[*]}
 do
 	if ! command -v $tool > /dev/null 2>&1
 	then
-		echo >&2 "$tool does not exist, install? [y/N]"
+		echo >&2 "$tool does not exist, install? [Y/n]"
 		read -r ans
 		case $ans in
-			"y")
-				sudo pacman -S $tool || { echo "$tool installation failed. exiting ... "; exit 1; }
+			"n")
+				exit 1
 				;;
 			*)
-				exit 1
+				sudo pacman -S $tool || { echo "$tool installation failed. exiting ... "; exit 1; }
 				;;
 		esac
 	fi
