@@ -1,5 +1,5 @@
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
-"let g:System_ = 'Linux'
+let g:System_ = 'Linux'
 "let g:System_ = 'Termux'
 "%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
@@ -90,6 +90,7 @@ let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_select_completion = ['<C-j>', '<S-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_complete_in_comments = 1
 " disables the check of ycm and uses syntastic insted
 let g:ycm_show_diagnostics_ui = 0
@@ -112,7 +113,7 @@ let g:UltiSnipsSnippetDirectories = ["Snips"]
 let g:UltiSnipsEnableSnipMate = 0
 
 let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsListSnippets  = "<C-Space>"
+let g:UltiSnipsListSnippets  = "<S-Space>"
 let g:UltiSnipsJumpForwardTrigger =  "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 

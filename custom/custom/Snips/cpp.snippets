@@ -11,14 +11,13 @@ for(${1:auto ${2:iterator}} : ${3:container})
 	${0:/* code */}
 endsnippet
 
-snippet "class" "C++ Class" rb
+snippet "cla?s?s?" "C++ Class" rb
 class ${1:AClass}{
 private:
 	${2:/* private */}
-	$1();
+	virtual ~$1();
 public:
 	${3:/* public */}
-	virtual ~$1();
 };
 endsnippet
 
