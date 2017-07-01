@@ -3,6 +3,11 @@ snippet #inc "#include< ... >" b
 $0
 endsnippet
 
+snippet #incl "#include'...' " b
+#include"${1:...}"
+$0
+endsnippet
+
 snippet main "main() without args" b
 int main(){
 	${0:/* code */}
@@ -78,7 +83,7 @@ snippet ifndef "C guard"
 
 $0
 
-#endif
+#endif // $1
 endsnippet
 
 

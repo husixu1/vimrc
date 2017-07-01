@@ -60,10 +60,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
+
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'farmergreg/vim-lastplace'
 
 Plug 'cohama/agit.vim'
+
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
 Plug 'Shougo/vimshell.vim'
@@ -222,8 +225,12 @@ set wildmode=longest,full
 set wildmenu
 set showmode
 
+" load the doxygen syntax
+let g:load_doxygen_syntax=1
+
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
+
 " autodetect filetype
 autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
@@ -244,6 +251,9 @@ map <C-i> <Plug>IndentGuidesToggle
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>
 
+" DoxygenToolKit map
+map <C-m> :Dox<CR>
+
 " agit show
 map <C-a> :Agit<CR>
 
@@ -262,11 +272,13 @@ map <F4> <C-w>T
 map <F2> :tabnew<CR>
 map <F3> :tabclose<CR>
 
-
 " you complete me jump
 nnoremap <leader>ji :YcmCompleter GoToInclude<CR>
 nnoremap <leader>jD :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+
+" ctag goto definition/declaration
+nnoremap <Leader><C-]> <C-w><C-]><C-w>T
 
 " incsearch map
 map n  <Plug>(incsearch-nohl-n)
