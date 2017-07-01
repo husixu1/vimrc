@@ -88,6 +88,7 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 
 "========= YouCompleteMe =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/custom/.ycm_extra_conf.py'
+let g:ycm_extra_conf_globlist = ['.']
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -177,6 +178,14 @@ let g:syntastic_mode_map = {
 	\ "mode": "active",
 	\ "active_filetypes": ["c", "cpp", "python", "shell"],
 	\ "passive_filetypes": ["asm", "tex"] }
+let g:syntastic_cpp_gcc_quiet_messages= {
+	\ "level": "errors",
+	\ "type":   "syntax",
+	\ "regex":  "No such file or directory" }
+let g:syntastic_c_gcc_quiet_messages= {
+	\ "level": "errors",
+	\ "type":   "syntax",
+	\ "regex":  "No such file or directory" }
 
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
@@ -246,7 +255,7 @@ map <C-n> :NERDTreeTabsToggle<CR>
 map <C-t> :TagbarToggle<CR>
 
 " identGuide Show
-map <C-i> <Plug>IndentGuidesToggle
+map <C-x> <Plug>IndentGuidesToggle
 
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>

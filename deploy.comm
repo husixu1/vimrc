@@ -38,7 +38,10 @@ mkdir -p "$HOME/.vim" || { echo "cannot create directory"; exit 1; }
 mkdir -p "$HOME/.vim/autoload" || exit 1
 
 # move files
+echo "\"%%%%% DO NOT MODIFY THIS PART %%%%%%" >> "$HOME/.vimrc"
 echo "let g:System_='$System'" >> "$HOME/.vimrc"
+echo "\"let g:System_='$System'" >> "$HOME/.vimrc"
+echo "\"%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%" >> "$HOME/.vimrc"
 cat $currentDir/vimrc | sed -n {5~1p} >> "$HOME/.vimrc"
 
 cp -r $currentDir/custom "$HOME/.vim/custom"
