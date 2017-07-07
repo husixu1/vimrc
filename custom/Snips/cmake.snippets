@@ -1,0 +1,99 @@
+snippet init "initilization" b
+cmake_minimum_required(version ${1:3.8.2})
+project(${2:ProjectName})
+
+find_package(${3:library})
+
+include_directories(${$3_INCLUDE_DIRS})
+
+add_subdirectory(${0:src})
+
+add_executable($2)
+
+target_link_libraries($2 ${$3_LIBRARIES})
+endsnippet
+
+snippet proj "set the project name" b
+project(${0:Name})
+endsnippet
+
+snippet min "minimum requirement" b
+cmake_minimum_required(version ${0:2.8.2})
+endsnippet
+
+snippet include "include directories" b
+include_directories(${${0:include_dir}})
+endsnippet
+
+snippet find "find package" b
+find_package(${1:library} ${0:REQUIRED})
+endsnippet
+
+snippet glob "files" b
+file(glob ${1:srcs} *.${0:cpp})
+endsnippet
+
+snippet subdir "add subdirectory" b
+add_subdirectory(${0:src})
+endsnippet
+
+snippet lib "add libraries" b
+add_library(${1:lib} ${${0:srcs}})
+endsnippet
+
+snippet link "link libraries to target" b
+target_link_libraries(${1:bin} ${0:somelib})
+endsnippet
+
+snippet bin "add executables" b
+add_executable(${1:bin})
+endsnippet
+
+snippet set "set variable value" b
+set(${1:var} ${0:val})
+endsnippet
+
+snippet dep "add dependencies" b
+add_dependencies(${1:target}
+${0:dep}
+)
+endsnippet
+
+snippet Ext_url "external url" b
+include(ExternalProject)
+ExternalProject_Add(${1:googletest}
+	URL ${2:http://googletest.googlecode.com/files/gtest-1.7.0.zip}
+	URL_HASH SHA1=${3:f85f6d2481e2c6c4a18539e391aa4ea8ab0394af}
+	SOURCE_DIR "${4:${CMAKE_BINARY_DIR}/gtest-src}"
+	BINARY_DIR "${0:${CMAKE_BINARY_DIR}/gtest-build}"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND     ""
+	INSTALL_COMMAND   ""
+	TEST_COMMAND      ""
+)
+endsnippet
+
+snippet Ext_git "external git repo" b
+include(ExternalProject)
+ExternalProject_Add(${1:googletest}
+	GIT_REPOSITORY    ${2:https://github.com/google/googletest.git}
+	GIT_TAG           ${3:master}
+	SOURCE_DIR        "${4:${CMAKE_BINARY_DIR}/googletest-src}"
+	BINARY_DIR        "${0:${CMAKE_BINARY_DIR}/googletest-build}"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND     ""
+	INSTALL_COMMAND   ""
+	TEST_COMMAND      ""
+)
+endsnippet
+
+snippet props "set properties" b
+set_target_properties(${1:target}
+${2:properties} ${3:compile_flags}
+${0:"-O3 -Wall -pedantic"}
+)
+endsnippet
+
+snippet test "add tests" b
+add_test(${1:ATestName} ${0:testCommand --options})
+endsnippet
