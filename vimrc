@@ -47,8 +47,8 @@ Plug 'idanarye/vim-merginal'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 
-" visual %%%%%%%%%%%%%%%%%
-" %%%%%%%%%%%%%%% function
+" visual %%%%%%%%%%%%%%%%%%%
+" %%%%%%%%%%%%%%% functional
 
 Plug 'vim-syntastic/syntastic'
 
@@ -70,6 +70,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
 Plug 'Shougo/vimshell.vim'
+Plug 'vim-scripts/Conque-GDB'
 Plug 'ashisha/image.vim'										"needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
@@ -204,6 +205,19 @@ let g:tagbar_iconchars = ['▶', '▼']
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd BufEnter * nested :call tagbar#autoopen(1)
 
+"====== ConqueGdb =============================
+let g:ConqueGdb_SrcSplit = 'left'
+let g:ConqueGdb_Leader = '<Leader>'
+let g:ConqueGdb_Run = g:ConqueGdb_Leader . 'r'
+let g:ConqueGdb_Continue = g:ConqueGdb_Leader . 'c'
+let g:ConqueGdb_Next = g:ConqueGdb_Leader . 'n'
+let g:ConqueGdb_Step = g:ConqueGdb_Leader . 's'
+let g:ConqueGdb_Print = g:ConqueGdb_Leader . 'p'
+let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
+let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
+let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
+let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
+
 "==============================================
 "========= Vim Custom Settings ================
 "==============================================
@@ -305,6 +319,9 @@ map <Leader> <Plug>(easymotion-prefix)
 nmap <Leader>S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+
+"--------------- commands ---------
+command Gdb ConqueGdb
 
 "--------------- functions --------
 function! AutoHighlightToggle()
