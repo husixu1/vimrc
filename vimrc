@@ -6,17 +6,20 @@ let g:System_ = 'Linux'
 "======== vim-plug ===========================
 set nocompatible              " required
 
-" set the runtime path to include Vundle and initialize
-call plug#begin('~/.vim/plugged')
-"--------- Post-buildup hooks-----
+let g:plug_threads = 8
+let g:plug_timeout = 60
+let g:plug_retries = 2
+let g:plug_window = 'vertical topleft new'
+
+"--------- Post-update hooks-----
 function! InstallFont(info)
-	if a:info.status == 'installed' || a:info.force
+	if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
 		!bash ./install.sh
 	endif
 endfunction this
 
 function! BuildYCM(info)
-	if a:info.status == 'installed' || a:info.force
+	if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
 		if g:System_ == 'Linux'
 			!python ./install.py --clang-completer
 		elseif g:System_ == 'Termux'
@@ -30,7 +33,9 @@ function! BuildVimProc(info)
 		!make
 	endif
 endfunction
+
 "--------- plugs -----------------
+call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -74,7 +79,7 @@ Plug 'vim-scripts/Conque-GDB'
 Plug 'ashisha/image.vim'										"needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on  " required
 
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
