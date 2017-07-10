@@ -275,7 +275,7 @@ map <C-x> <Plug>IndentGuidesToggle
 map <C-c> :SyntasticReset<CR>
 
 " DoxygenToolKit map
-map <C-m> :Dox<CR>
+map <S-m> :Dox<CR>
 
 " agit show
 map <C-a> :Agit<CR>
