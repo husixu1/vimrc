@@ -274,7 +274,7 @@ map <C-n> :NERDTreeTabsToggle<CR>
 map <C-t> :TagbarToggle<CR>
 
 " identGuide Show
-map <C-x> <Plug>IndentGuidesToggle
+map <C-\> <Plug>IndentGuidesToggle
 
 " Syntastic reset
 map <C-c> :SyntasticReset<CR>
