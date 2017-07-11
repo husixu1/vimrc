@@ -3,7 +3,7 @@
 currentDir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd )
 
 # makedepend
-tools=(vim git python curl gdb automake autoconf make)
+tools=(vim git python curl gdb automake autoconf make cmake)
 
 System=Linux
 export System
