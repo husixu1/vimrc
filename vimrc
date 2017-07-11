@@ -34,6 +34,22 @@ function! BuildVimProc(info)
 	endif
 endfunction
 
+function! BuildVimDbgDependency(info)
+	if a:info.status == 'installed' || a:info.force
+		!sudo pip install dbgp
+	endif
+endfunction
+
+function! InstallPillow(info)
+	if a:info.status == 'installed' || a:info.force
+		if g:System_ == 'Linux'
+			!sudo pip install pillow
+		elseif g:System_ == 'Termux'
+			!pip install pillow
+		endif
+	endif
+endfunction
+
 "--------- plugs -----------------
 call plug#begin('~/.vim/plugged')
 
@@ -76,7 +92,9 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
 Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
-Plug 'ashisha/image.vim'										"needs pillow (pip install pillow)
+"Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
+"Plug 'vim-scripts/bash-support.vim'
+Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }										"needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
