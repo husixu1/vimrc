@@ -264,8 +264,10 @@ set laststatus=2	" always show the status line
 "--------------- behaviour -------
 syntax enable
 syntax on
-set tabstop=4
+set tabstop=8
+set softtabstop=4
 set shiftwidth=4
+set expandtab
 set smartindent
 set wildmode=longest,full
 set wildmenu
