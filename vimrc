@@ -13,41 +13,41 @@ let g:plug_window = 'vertical topleft new'
 
 "--------- Post-update hooks-----
 function! InstallFont(info)
-	if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-		!bash ./install.sh
-	endif
+    if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+        !bash ./install.sh
+    endif
 endfunction this
 
 function! BuildYCM(info)
-	if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-		if g:System_ == 'Linux'
-			!python ./install.py --clang-completer
-		elseif g:System_ == 'Termux'
-			!python ./install.py --clang-completer --system-libclang
-		endif
-	endif
+    if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+        if g:System_ == 'Linux'
+            !python ./install.py --clang-completer
+        elseif g:System_ == 'Termux'
+            !python ./install.py --clang-completer --system-libclang
+        endif
+    endif
 endfunction
 
 function! BuildVimProc(info)
-	if a:info.status == 'installed' || a:info.force
-		!make
-	endif
+    if a:info.status == 'installed' || a:info.force
+        !make
+    endif
 endfunction
 
 function! BuildVimDbgDependency(info)
-	if a:info.status == 'installed' || a:info.force
-		!sudo pip install dbgp
-	endif
+    if a:info.status == 'installed' || a:info.force
+        !sudo pip install dbgp
+    endif
 endfunction
 
 function! InstallPillow(info)
-	if a:info.status == 'installed' || a:info.force
-		if g:System_ == 'Linux'
-			!sudo pip install pillow
-		elseif g:System_ == 'Termux'
-			!pip install pillow
-		endif
-	endif
+    if a:info.status == 'installed' || a:info.force
+        if g:System_ == 'Linux'
+            !sudo pip install pillow
+        elseif g:System_ == 'Termux'
+            !pip install pillow
+        endif
+    endif
 endfunction
 
 "--------- plugs -----------------
@@ -81,6 +81,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'pseewald/vim-anyfold'
 
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'farmergreg/vim-lastplace'
@@ -89,12 +90,12 @@ Plug 'cohama/agit.vim'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
-Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }		"vimshell dependency
+Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 "Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
 "Plug 'vim-scripts/bash-support.vim'
-Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }										"needs pillow (pip install pillow)
+Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }                                        "needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -103,9 +104,9 @@ filetype plugin indent on  " required
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 if g:System_ == 'Linux'
-	let g:NERDTreeWinSize = 31
+    let g:NERDTreeWinSize = 31
 elseif g:System_ == 'Termux'
-	let g:NERDTreeWinSize = 21
+    let g:NERDTreeWinSize = 21
 endif
 let g:NERDTreeDirArrowCollapsible = '▼'
 
@@ -152,27 +153,27 @@ set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 if g:System_ == 'Linux'
-	let g:airline_powerline_fonts = 1
-	let g:airline_left_sep = ''
-	let g:airline_left_alt_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_alt_sep = ''
+    let g:airline_powerline_fonts = 1
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
 elseif g:System_ == 'Termux'
-	let g:airline_powerline_fonts = 0
-	let g:airline_left_sep = ''
-	let g:airline_left_alt_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_alt_sep = ''
-	let g:airline_symbols = {}
-	let g:airline_symbols.crypt = '🔒'
-	let g:airline_symbols.linenr = '␊'
-	let g:airline_symbols.linenr = '␤'
-	let g:airline_symbols.maxlinenr = '☰'
-	let g:airline_symbols.branch = '⎇'
-	let g:airline_symbols.paste = 'ρ'
-	let g:airline_symbols.spell = 'Ꞩ'
-	let g:airline_symbols.notexists = '∄'
-	let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_powerline_fonts = 0
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols = {}
+    let g:airline_symbols.crypt = '🔒'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.maxlinenr = '☰'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.spell = 'Ꞩ'
+    let g:airline_symbols.notexists = '∄'
+    let g:airline_symbols.whitespace = 'Ξ'
 endif
 let g:airline#extensions#whitespace#enabled = 1
 
@@ -199,17 +200,17 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_mode_map = {
-	\ "mode": "active",
-	\ "active_filetypes": ["c", "cpp", "python", "shell"],
-	\ "passive_filetypes": ["asm", "tex"] }
+    \ "mode": "active",
+    \ "active_filetypes": ["c", "cpp", "python", "shell"],
+    \ "passive_filetypes": ["asm", "tex"] }
 let g:syntastic_cpp_gcc_quiet_messages= {
-	\ "level": "errors",
-	\ "type":   "syntax",
-	\ "regex":  "No such file or directory" }
+    \ "level": "errors",
+    \ "type":   "syntax",
+    \ "regex":  "No such file or directory" }
 let g:syntastic_c_gcc_quiet_messages= {
-	\ "level": "errors",
-	\ "type":   "syntax",
-	\ "regex":  "No such file or directory" }
+    \ "level": "errors",
+    \ "type":   "syntax",
+    \ "regex":  "No such file or directory" }
 
 "====== AutoPair ==============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
@@ -241,13 +242,21 @@ let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
 let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
 let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
 
+"====== AnyFold ===============================
+filetype plugin indent on   " required
+syntax on                   " required
+let g:anyfold_activate=1
+let g:anyfold_identify_comments = 1
+set foldlevel=0
+set foldlevelstart=10
+
 "==============================================
 "========= Vim Custom Settings ================
 "==============================================
 if g:System_ == 'Linux'
-	set shell=/bin/bash
+    set shell=/bin/bash
 elseif g:System_ == 'Termux'
-	set shell=/data/data/com.termux/files/usr/bin/bash
+    set shell=/data/data/com.termux/files/usr/bin/bash
 endif
 set term=screen-256color
 
@@ -257,9 +266,9 @@ set cursorline
 "set cursorcolumn
 set number
 set relativenumber
-set incsearch		" search when you type
+set incsearch        " search when you type
 set hlsearch
-set laststatus=2	" always show the status line
+set laststatus=2    " always show the status line
 
 "--------------- behaviour -------
 syntax enable
@@ -350,20 +359,20 @@ command Gdb ConqueGdb
 
 "--------------- functions --------
 function! AutoHighlightToggle()
-	let @/ = ''
-	if exists('#auto_highlight')
-		au! auto_highlight
-		augroup! auto_highlight
-		setl updatetime=4000
-		echo 'Highlight current word: off'
-		return 0
-	else
-		augroup auto_highlight
-			au!
-			au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-		augroup end
-		setl updatetime=500
-		echo 'Highlight current word: ON'
-		return 1
-	endif
+    let @/ = ''
+    if exists('#auto_highlight')
+        au! auto_highlight
+        augroup! auto_highlight
+        setl updatetime=4000
+        echo 'Highlight current word: off'
+        return 0
+    else
+        augroup auto_highlight
+            au!
+            au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+        augroup end
+        setl updatetime=500
+        echo 'Highlight current word: ON'
+        return 1
+    endif
 endfunction
