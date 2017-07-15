@@ -23,6 +23,57 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 * run `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 * run `vim +PlugInstall`
 
+## frequently-used key mappings
+|plugin                |key             |mapping                     |
+|---------------------:|:--------------:|----------------------------|
+|Global                |;               |\<Leader\>                  |
+|                      |                |                            |
+|Nerdtree              |C-n             |NerdTreeTabsToggle          |
+|Vim-indent-guides     |C-\\            |IndentGuidesToggle          |
+|Tagbar                |C-t             |TagBarToggle                |
+|Syntastic             |C-c             |SyntasticReset              |
+|YouCompleteMe         |S-j,C-j,Down    |NextCompletion              |
+|                      |S-k,C-k,Up      |PreviousCompletion          |
+|                      |C-Space         |OmniCompletion              |
+|                      |\<Leader\>ji    |GotoInclude                 |
+|                      |\<Leader\>jd    |GotoDefinition              |
+|                      |\<Leader\>jD    |GotoDeclaration             |
+|UltiSnip              |Tab             |UltiSnipTrigger             |
+|AutoPair              |C-w             |AutoPairsFastWarp           |
+|DoxygenToolkit        |S-m             |GenerateDox                 |
+|Agit                  |C-a             |ShowAgit                    |
+|VimShell              |C-s             |ShowVimShell                |
+|EasyMotion            |\\              |EasyMotionLeader(ELeader)   |
+|                      |\<ELeader\>s    |searchOneLetter             |
+|                      |\<ELeader\>S    |searchMoreLetters           |
+|                      |\<ELeader\>j    |searchUp                    |
+|                      |\<ELeader\>k    |searchDown                  |
+|AnyFold(vim buildin)  |zm,zM           |foldMore, foldMax           |
+|                      |zr,zR           |reduceFold, unfoldAll       |
+|                      |zc,zC           |closeFold, closeFoldRecurse |
+|                      |zo,zO           |openFold, openFoldRecurse   |
+|ConqueGdb             |\<Leader\>r     |ConqueGdb\_Run              |
+|                      |\<Leader\>c     |ConqueGdb\_Continue         |
+|                      |\<Leader\>n     |ConqueGdb\_Next             |
+|                      |\<Leader\>s     |ConqueGdb\_Step             |
+|                      |\<Leader\>p     |ConqueGdb\_Print            |
+|                      |\<Leader\>b     |ConqueGdb\_ToggleBreak      |
+|                      |\<Leader\>d     |ConqueGdb\_DeleteBreak      |
+|                      |\<Leader\>f     |ConqueGdb\_Finish           |
+|                      |\<Leader\>t     |ConqueGdb\_Backtrace        |
+|Buildin               |F1              |PasteToggle                 |
+|                      |F2              |NewTab                      |
+|                      |F3              |CloseCurrentTab             |
+|                      |F4              |MakeCurrentWindowATab       |
+|                      |C-f             |OpenFileFinder              |
+|                      |S-l             |NextTab                     |
+|                      |S-h             |PreviousTab                 |
+|                      |C-l             |MoveTabRight                |
+|                      |C-h             |MoveTabLeft                 |
+|                      |\<Leader\>C-]   |CtagJumpAndOpenInNewWindow  |
+|                      |z/              |ToggleAutoHighlight         |
+|                      |                |                            |
+
 ### YCM config
 
 * either-> create your own .ycm\_extra\_conf.py and put it in ~/.vim/custom

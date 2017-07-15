@@ -232,15 +232,15 @@ let g:tagbar_iconchars = ['▶', '▼']
 "====== ConqueGdb =============================
 let g:ConqueGdb_SrcSplit = 'left'
 let g:ConqueGdb_Leader = '<Leader>'
-let g:ConqueGdb_Run = g:ConqueGdb_Leader . 'r'
-let g:ConqueGdb_Continue = g:ConqueGdb_Leader . 'c'
-let g:ConqueGdb_Next = g:ConqueGdb_Leader . 'n'
-let g:ConqueGdb_Step = g:ConqueGdb_Leader . 's'
-let g:ConqueGdb_Print = g:ConqueGdb_Leader . 'p'
+let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
+let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
+let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
+let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
+let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
 let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
 let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
-let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
-let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
+let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
+let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
 
 "====== AnyFold ===============================
 filetype plugin indent on   " required
