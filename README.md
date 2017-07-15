@@ -20,6 +20,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 * run `vim +PlugInstall`
 
 *use fonts for powerline in terminal vim to display airline arrows correctly*
+
 *disable devicons plugin if you don't need it, otherwise install nerd-fonts patch*
 
 ## frequently-used key mappings
