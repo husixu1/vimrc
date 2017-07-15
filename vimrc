@@ -349,8 +349,8 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " easymotion
-map <Leader> <Plug>(easymotion-prefix)
-nmap <Leader>S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
+map \ <Plug>(easymotion-prefix)
+nmap \S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
