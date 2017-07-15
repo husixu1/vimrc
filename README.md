@@ -7,15 +7,11 @@ to use it, follow the instructions below
 
 ## auto-installation
 
----
-
 run `./deploy.<platform>.sh` WITHOUT root privilige.
 
 <platform> can be archlinux or termux
 
 ## manual-installation
-
----
 
 * put all directories into your .vim dir
 * put vimrc in your home dir
