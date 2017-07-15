@@ -19,6 +19,9 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 * run `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 * run `vim +PlugInstall`
 
+*use fonts for powerline in terminal vim to display airline arrows correctly*
+*disable devicons plugin if you don't need it, otherwise install nerd-fonts patch*
+
 ## frequently-used key mappings
 |plugin                |key             |mapping                     |
 |---------------------:|:--------------:|----------------------------|
@@ -70,7 +73,21 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |z/              |ToggleAutoHighlight         |
 |                      |                |                            |
 
-### YCM config
+## frequently used commands
+
+|plugin                |command         |decription                  |
+|---------------------:|:--------------:|----------------------------|
+|vim-plug              |:PlugUpdate     |Update Plugins              |
+|                      |:PlugClean      |Clean Unused Plugins        |
+|                      |:PlugInstall    |Install Plugins             |
+|                      |:PlugUpgrade    |Upgrade Vim-plug Itself     |
+|ConqueGdb             |:Gdb            |Start ConqueGdb             |
+|Syntastic             |:SyntasticCheck |Start SyntasticCheck        |
+|                      |:SyntasticToggle|Toggle SyntasticCheck       |
+|                      |:SyntasticToggle|Toggle SyntasticCheck       |
+|YouCompleteMe         |:YcmDebugInfo   |When Ycm Has Some Problems  |
+
+## YCM config
 
 * either-> create your own .ycm\_extra\_conf.py and put it in ~/.vim/custom
 * or-----> use the ycm\_extra\_conf.py in this repo insted (do not have to change anything)

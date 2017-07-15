@@ -95,7 +95,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 "Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
 "Plug 'vim-scripts/bash-support.vim'
-Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }                                        "needs pillow (pip install pillow)
+Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
