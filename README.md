@@ -5,6 +5,13 @@ to use it, follow the instructions below
 
 # TO USE THIS CONFIG
 
+## requirements
+* dependency
+    * nerd-font for powerline: in order to use devicon and vim-airline
+    * python2 / python3: essential
+    * gdb: in order to use Conque-gdb
+    * vim built with python support (non-dynamic)
+
 ## auto-installation
 
 run `./deploy.<platform>.sh` WITHOUT root privilige.
