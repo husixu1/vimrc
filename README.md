@@ -52,6 +52,8 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |zr,zR           |reduceFold, unfoldAll       |
 |                      |zc,zC           |closeFold, closeFoldRecurse |
 |                      |zo,zO           |openFold, openFoldRecurse   |
+|RainbowParentheses    |F9              |LoadRainbowParentheses      |
+|                      |F10             |ToggleRainbowParentheses    |
 |ConqueGdb             |\<Leader\>r     |ConqueGdb\_Run              |
 |                      |\<Leader\>c     |ConqueGdb\_Continue         |
 |                      |\<Leader\>n     |ConqueGdb\_Next             |
