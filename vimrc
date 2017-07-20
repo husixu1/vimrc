@@ -3,6 +3,10 @@ let g:System_ = 'Linux'
 "let g:System_ = 'Termux'
 "%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
+"==============================================
+"========= Vim Plugin Settings ================
+"==============================================
+
 "======== vim-plug ===========================
 set nocompatible              " required
 
@@ -68,6 +72,8 @@ Plug 'idanarye/vim-merginal'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 
+Plug 'kien/rainbow_parentheses.vim'
+
 " visual %%%%%%%%%%%%%%%%%%%
 " %%%%%%%%%%%%%%% functional
 
@@ -95,7 +101,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 "Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
 "Plug 'vim-scripts/bash-support.vim'
-Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
+Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }                                        "needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -203,13 +209,10 @@ let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "active_filetypes": ["c", "cpp", "python", "shell"],
     \ "passive_filetypes": ["asm", "tex"] }
+"let g:syntastic_cpp_checkers=['clang_check']
 let g:syntastic_cpp_gcc_quiet_messages= {
-    \ "level": "errors",
-    \ "type":   "syntax",
     \ "regex":  "No such file or directory" }
 let g:syntastic_c_gcc_quiet_messages= {
-    \ "level": "errors",
-    \ "type":   "syntax",
     \ "regex":  "No such file or directory" }
 
 "====== AutoPair ==============================
@@ -232,23 +235,46 @@ let g:tagbar_iconchars = ['▶', '▼']
 "====== ConqueGdb =============================
 let g:ConqueGdb_SrcSplit = 'left'
 let g:ConqueGdb_Leader = '<Leader>'
-let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
-let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
-let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
-let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
-let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
+let g:ConqueGdb_Run = g:ConqueGdb_Leader . 'r'
+let g:ConqueGdb_Continue = g:ConqueGdb_Leader . 'c'
+let g:ConqueGdb_Next = g:ConqueGdb_Leader . 'n'
+let g:ConqueGdb_Step = g:ConqueGdb_Leader . 's'
+let g:ConqueGdb_Print = g:ConqueGdb_Leader . 'p'
 let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
 let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
-let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
-let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
+let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
+let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
 
 "====== AnyFold ===============================
 filetype plugin indent on   " required
 syntax on                   " required
-let g:anyfold_activate=1
-let g:anyfold_identify_comments = 1
+let g:anyfold_activate = 1
+let g:anyfold_identify_comments = 0
+let g:anyfold_fold_toplevel = 0
 set foldlevel=0
 set foldlevelstart=10
+
+"====== Rainbow Parentheses ===================
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
 
 "==============================================
 "========= Vim Custom Settings ================
@@ -260,7 +286,7 @@ elseif g:System_ == 'Termux'
 endif
 set term=screen-256color
 
-"--------------- appearence ------
+"====== Appearence ============================
 colo wombat256
 set cursorline
 "set cursorcolumn
@@ -270,7 +296,7 @@ set incsearch        " search when you type
 set hlsearch
 set laststatus=2    " always show the status line
 
-"--------------- behaviour -------
+"====== Behaviour =============================
 syntax enable
 syntax on
 set tabstop=8
@@ -292,7 +318,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
 
-"--------------- key mappings -----
+"====== Key Mappings ==========================
 let g:mapleader = ';'
 set pastetoggle=<F1>
 
@@ -319,6 +345,13 @@ map <C-s> :VimShell<CR>
 
 " file finder
 map <C-f> :e .<CR>
+
+" rainbow parentheses toggle
+map <F9> :RainbowParenthesesLoadRound<CR>
+            \:RainbowParenthesesLoadSquare<CR>
+            \:RainbowParenthesesLoadBraces<CR>
+            \:RainbowParenthesesLoadChevrons<CR>
+map <F10> :RainbowParenthesesToggle<CR>
 
 " tab operation
 map <S-l> :tabn<CR>
@@ -354,10 +387,10 @@ nmap \S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
-"--------------- commands ---------
+"====== Commands ==============================
 command Gdb ConqueGdb
 
-"--------------- functions --------
+"====== Functions =============================
 function! AutoHighlightToggle()
     let @/ = ''
     if exists('#auto_highlight')
