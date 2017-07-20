@@ -44,7 +44,7 @@ while(${1:...})
 endsnippet
 
 # switch case - switch
-snippet "swit" "Switch - Case" b
+snippet swit "Switch - Case" b
 switch(${1:...}){
 	${2:/* cases */}
 	${3:default:
@@ -54,20 +54,20 @@ switch(${1:...}){
 endsnippet
 
 # switch case - case
-snippet "case" "Switch - Case" b
+snippet case "Switch - Case" b
 case ${1:/* condition */}:
 	${2:/* code */}
 	break;
 $0
 endsnippet
 
-snippet "struct" "struct typedef" b
+snippet struct "struct typedef" b
 typedef struct _${1:name}{
 	${2:/* data */}
 }$1;$0
 endsnippet
 
-snippet "union" "union typedef" b
+snippet union "union typedef" b
 typedef union _${1:name}{
 	${2:/* data */}
 }$1;$0

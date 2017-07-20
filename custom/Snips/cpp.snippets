@@ -11,25 +11,40 @@ for(${1:auto ${2:iterator}} : ${3:container})
 	${0:/* code */}
 endsnippet
 
-snippet "class" "C++ Class" rb
-class ${1:AClass}{
+#snippet class "C++ Class" b
+#class ${1:AClass}${2:: ${3:public} ${4:BClass}}{
+#private:
+#	${5:/* private */}
+#public:
+#	$1();
+#	$1(const $1 &);
+#	$1 &operator=(const $1 &);
+#	virtual ~$1();
+#	${6:/* public */}
+#}; // class $1
+#endsnippet
+
+snippet class "C++ Class" b
+class ${1:AClass}${2:: ${3:public} ${4:BClass}}{
 private:
-	${2:/* private */}
-	$1();
+	${3:/* private */}
 public:
-	${3:/* public */}
+	$1();
+	$1(const $1 &);
+	$1 &operator=(const $1 &);
 	virtual ~$1();
-};
+	${4:/* public */}
+}; // class $1
 endsnippet
 
-snippet "tem(pl)?a?t?e?" "C++ template" rb
+snippet templ "C++ template" b
 template <typename $1>$0
 endsnippet
 
-snippet "(name|nm)" "C++ namespace" rb
+snippet name "C++ namespace" b
 namespace ${1:name}{
 	${2:/* data */}
-}
+} //namespace $1
 endsnippet
 
 snippet using "using namespace" b
