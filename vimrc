@@ -74,8 +74,8 @@ Plug 'majutsushi/tagbar'
 
 Plug 'kien/rainbow_parentheses.vim'
 
-" visual %%%%%%%%%%%%%%%%%%%
-" %%%%%%%%%%%%%%% functional
+" visual -------------------
+" --------------- functional
 
 Plug 'vim-syntastic/syntastic'
 
@@ -94,6 +94,7 @@ Plug 'farmergreg/vim-lastplace'
 
 Plug 'cohama/agit.vim'
 
+Plug 'Chiel92/vim-autoformat'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
@@ -101,7 +102,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 "Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
 "Plug 'vim-scripts/bash-support.vim'
-Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }                                        "needs pillow (pip install pillow)
+Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -205,6 +206,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_cpp_check_header = 1
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "active_filetypes": ["c", "cpp", "python", "shell"],
@@ -308,6 +310,9 @@ set wildmode=longest,full
 set wildmenu
 set showmode
 
+set fileencodings=utf8,cp936,gb18030,big5
+set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
+
 " load the doxygen syntax
 let g:load_doxygen_syntax=1
 
@@ -388,7 +393,7 @@ nmap \S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
 "====== Commands ==============================
-command Gdb ConqueGdb
+command! Gdb ConqueGdb
 
 "====== Functions =============================
 function! AutoHighlightToggle()
