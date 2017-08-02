@@ -394,6 +394,7 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
 "====== Commands ==============================
 command! Gdb ConqueGdb
+autocmd Filetype c,cpp nnoremap <silent> <C-Q> :!command -v devhelp && devhelp -s "<cword>" > /dev/null 2>&1 &<CR><CR>
 
 "====== Functions =============================
 function! AutoHighlightToggle()
