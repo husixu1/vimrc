@@ -57,9 +57,6 @@ endfunction
 "--------- plugs -----------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'vim-airline/vim-airline'
@@ -68,41 +65,47 @@ Plug 'tpope/vim-fugitive'
 Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
-"Plug 'Yggdroot/indentLine'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'majutsushi/tagbar'
 
 Plug 'kien/rainbow_parentheses.vim'
 
 " visual -------------------
 " --------------- functional
 
-Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'majutsushi/tagbar'
 
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
-"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pseewald/vim-anyfold'
 
-Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'farmergreg/vim-lastplace'
 
 Plug 'cohama/agit.vim'
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python' }
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
-"Plug 'jaredly/vim-debug', { 'do':function('BuildVimDbgDependency') }  "debugger for python and php
-"Plug 'vim-scripts/bash-support.vim'
 Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
+
+" --------------- functional
+" language support ---------
+
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
+"Plug 'vim-scripts/bash-support.vim'
+
 "----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
