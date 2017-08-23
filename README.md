@@ -48,7 +48,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |UltiSnip              |Tab             |UltiSnipTrigger             |
 |AutoPair              |C-w             |AutoPairsFastWarp           |
 |DoxygenToolkit        |S-m             |GenerateDox                 |
-|Agit                  |C-a             |ShowAgit                    |
+|Agit                  |C-g             |ShowAgit                    |
 |VimShell              |C-s             |ShowVimShell                |
 |EasyMotion            |\\              |EasyMotionLeader(ELeader)   |
 |                      |\<ELeader\>s    |searchOneLetter             |
@@ -81,6 +81,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |C-h             |MoveTabLeft                 |
 |                      |\<Leader\>C-]   |CtagJumpAndOpenInNewWindow  |
 |                      |z/              |ToggleAutoHighlight         |
+|                      |C-q             |QueryInDocs(DevDoc required)|
 |                      |                |                            |
 
 ## frequently used commands

@@ -92,7 +92,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'cohama/agit.vim'
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python' }
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript' }
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
@@ -103,12 +103,16 @@ Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (p
 " language support ---------
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
+"Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
 
-"----------------------------------
 call plug#end()            " required
 filetype plugin indent on  " required
+"----------------------------------
 
 "========= NERDTree =========================
 let g:NERDTreeDirArrows = 1
@@ -346,7 +350,7 @@ map <C-c> :SyntasticReset<CR>
 map <S-m> :Dox<CR>
 
 " agit show
-map <C-a> :Agit<CR>
+map <C-g> :Agit<CR>
 
 " VimShell
 map <C-s> :VimShell<CR>
@@ -397,7 +401,7 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
 "====== Commands ==============================
 command! Gdb ConqueGdb
-autocmd Filetype c,cpp nnoremap <silent> <C-Q> :!command -v devhelp && devhelp -s "<cword>" > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype c,cpp nnoremap <silent> <C-Q> :!command -v devdocs-desktop && devdocs-desktop "<cword>" > /dev/null 2>&1 &<CR><CR>
 
 "====== Functions =============================
 function! AutoHighlightToggle()
