@@ -81,7 +81,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |C-h             |MoveTabLeft                 |
 |                      |\<Leader\>C-]   |CtagJumpAndOpenInNewWindow  |
 |                      |z/              |ToggleAutoHighlight         |
-|                      |C-q             |QueryInDocs(DevDoc required)|
+|                      |C-q             |QueryInZeal(zeal required)|
 |                      |                |                            |
 
 ## frequently used commands
@@ -97,6 +97,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |:SyntasticToggle|Toggle SyntasticCheck       |
 |                      |:SyntasticToggle|Toggle SyntasticCheck       |
 |YouCompleteMe         |:YcmDebugInfo   |When Ycm Has Some Problems  |
+|LivedownPreview       |:MarkdownPreview|view markdown in browser    |
 
 ## YCM config
 
