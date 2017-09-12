@@ -109,6 +109,7 @@ Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
 "Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
+Plug 'shime/vim-livedown', { 'for': 'markdown'}                 "needs npm install -g livedown
 
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -401,7 +402,15 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
 "====== Commands ==============================
 command! Gdb ConqueGdb
-autocmd Filetype c,cpp nnoremap <silent> <C-Q> :!command -v devdocs-desktop && devdocs-desktop "<cword>" > /dev/null 2>&1 &<CR><CR>
+command! MarkdownPreview LivedownPreview
+
+
+" requires zeal
+autocmd Filetype c          nnoremap <silent> <C-Q> :!command -v zeal && zeal "c:<cword>"          > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype cpp        nnoremap <silent> <C-Q> :!command -v zeal && zeal "cpp:<cword>"        > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype python     nnoremap <silent> <C-Q> :!command -v zeal && zeal "python:<cword>"     > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "html:<cword>"       > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
 "====== Functions =============================
 function! AutoHighlightToggle()
