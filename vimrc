@@ -320,6 +320,7 @@ set showmode
 
 set fileencodings=utf8,cp936,gb18030,big5
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
+set backspace=indent,eol,start
 
 " load the doxygen syntax
 let g:load_doxygen_syntax=1
