@@ -22,13 +22,13 @@ int main(int argc, char *argv[]){
 endsnippet
 
 snippet for "Multi-Line Loop" b
-for(${1:int ${2:i}}=0; ${1/(\w+\s+)?(\w+)/$2/}<${3:Max}; ${1/(\w+\s+)?(\w+)/$2/}${4:++}){
+for(${1:int ${2:i}}=0; $2 < ${3:Max}; ${4:++$2}){
     ${0:/* code */}
 }
 endsnippet
 
 snippet fors "Single-Line Loop" b
-for(${1:int ${2:i}}=0; ${1/(\w+\s+)?(\w+)/$2/}<${3:Max}; ${1/(\w+\s+)?(\w+)/$2/}${4:++})
+for(${1:int ${2:i}}=0; $2 < ${3:Max}; ${4:++$2})
     ${0:/* code */}
 endsnippet
 

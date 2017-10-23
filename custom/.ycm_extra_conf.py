@@ -57,6 +57,10 @@ flags = [
 '/usr/bin/../lib/clang/4.0.0/include',
 '-isystem',
 '/usr/include',
+'-isystem',
+'/usr/include/c++/7.1.1',
+'-isystem',
+'/opt/intel/compilers_and_libraries_2017.4.196/linux/compiler/include/icc',
 '-I',
 '.',
 
