@@ -100,6 +100,7 @@ Plug 'vim-scripts/Conque-GDB'
 Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
 
 Plug 'dkprice/vim-easygrep'
+Plug 'ronakg/quickr-preview.vim'
 " --------------- functional
 " language support ---------
 

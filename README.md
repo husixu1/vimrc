@@ -70,6 +70,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |\<Leader\>d     |ConqueGdb\_DeleteBreak      |
 |                      |\<Leader\>f     |ConqueGdb\_Finish           |
 |                      |\<Leader\>t     |ConqueGdb\_Backtrace        |
+|Quickr-preveiew       |\<Leader\>space |quickfixPreview             |
 |Buildin               |F1              |PasteToggle                 |
 |                      |F2              |NewTab                      |
 |                      |F3              |CloseCurrentTab             |
@@ -98,7 +99,9 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |:SyntasticToggle|Toggle SyntasticCheck       |
 |YouCompleteMe         |:YcmDebugInfo   |When Ycm Has Some Problems  |
 |LivedownPreview       |:MarkdownPreview|view markdown in browser    |
-
+|EasyGrep              |:Grep           |grep in files               |
+|                      |:GrepOptions    |easygrep options            |
+|                      |                |                            |
 ## YCM config
 
 * either-> create your own .ycm\_extra\_conf.py and put it in ~/.vim/custom
