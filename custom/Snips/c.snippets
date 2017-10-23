@@ -86,25 +86,46 @@ $0
 #endif // $1
 endsnippet
 
+snippet file "file declarration"
+/**
+ * @file ${1:file}
+ * @brief ${2: introduction}
+ *
+ * @details
+ * ${3: detailed introduction}
+ *
+ * @date `date +%F`
+ * @author ${4:Sixu Hu}
+**/
+endsnippet
 
-snippet GPL "GPLv3 header"
-/********************************************************************
-Copyright `date +%Y` ${1:Sixu Hu} <${2:husixu1@hotmail.com}>
+snippet filec "file declarration with copyright"
+/**
+ * @file U201514898_1.cpp
+ * @brief ${5: introduction}
+ *
+ * @details
+ * ${6: detailed introduction}
+ *
+ * @date `date +%F`
+ * @author ${1:Sixu Hu}
+ *
+ * @copyright
+ * Copyright `date +%Y` $1 <${2:husixu1@hotmail.com}>
+ * <br><br>
+ * This file is part of ${3:program}.
+ * <br><br>
+ * $3 free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <br><br>
+ * $3 is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with ${4:$3}.  If not, see <http://www.gnu.org/licenses/>.
+**/
 
-This file is part of ${3:program}.
-
-$3 is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-$3 is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with ${4:$3}.  If not, see <http://www.gnu.org/licenses/>.
-********************************************************************/
-$0
 endsnippet
