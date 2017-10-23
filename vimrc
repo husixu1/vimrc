@@ -99,6 +99,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
 
+Plug 'dkprice/vim-easygrep'
 " --------------- functional
 " language support ---------
 
@@ -264,6 +265,9 @@ let g:anyfold_fold_toplevel = 0
 set foldlevel=0
 set foldlevelstart=10
 
+"====== EasyGrep ==============================
+let g:EasyGrepFileAssociationsInExplorer = 1
+
 "====== Rainbow Parentheses ===================
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -304,7 +308,11 @@ set number
 set relativenumber
 set incsearch        " search when you type
 set hlsearch
-set laststatus=2    " always show the status line
+set laststatus=2     " always show the status line
+
+" load the doxygen syntax and use enhanced highlight
+let g:load_doxygen_syntax = 1
+let g:doxygen_enhanced_color = 1
 
 "====== Behaviour =============================
 syntax enable
@@ -321,9 +329,6 @@ set showmode
 set fileencodings=utf8,cp936,gb18030,big5
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
 set backspace=indent,eol,start
-
-" load the doxygen syntax
-let g:load_doxygen_syntax=1
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
@@ -404,7 +409,7 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 "====== Commands ==============================
 command! Gdb ConqueGdb
 command! MarkdownPreview LivedownPreview
-
+command! AutoHighlightToggle :call AutoHighlightToggle()
 
 " requires zeal
 autocmd Filetype c          nnoremap <silent> <C-Q> :!command -v zeal && zeal "c:<cword>"          > /dev/null 2>&1 &<CR><CR>
