@@ -3,11 +3,11 @@ let g:System_ = 'Linux'
 "let g:System_ = 'Termux'
 "%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
-"==============================================
-"========= Vim Plugin Settings ================
-"==============================================
+"=============================================
+"========= Vim Plugin Settings ===============
+"=============================================
 
-"======== vim-plug ===========================
+"========= vim-plug ==========================
 set nocompatible              " required
 
 let g:plug_threads = 8
@@ -66,7 +66,6 @@ Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
 Plug 'nathanaelkane/vim-indent-guides'
-
 Plug 'kien/rainbow_parentheses.vim'
 
 " visual -------------------
@@ -100,7 +99,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
 
-Plug 'dkprice/vim-easygrep'
+Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
 " --------------- functional
@@ -114,12 +113,13 @@ Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 "needs npm install -g livedown
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()            " required
 filetype plugin indent on  " required
 "----------------------------------
 
-"========= NERDTree =========================
+"========= NERDTree ==========================
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 if g:System_ == 'Linux'
@@ -153,7 +153,7 @@ let g:ycm_semantic_triggers = {
 \  'tex'  : ['{'],
 \ }
 
-"========= UltiSnip =========================
+"========= UltiSnip ==========================
 set rtp+=~/.vim/custom
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetsDir = "~/.vim/custom/Snips"
@@ -196,7 +196,7 @@ elseif g:System_ == 'Termux'
 endif
 let g:airline#extensions#whitespace#enabled = 1
 
-"======== Undo Tree =========================
+"======== Undo Tree ==========================
 let g:undotree_WindowLayout = 2
 let g:undotree_ShortIndicators = 1
 let g:undotree_HelpLine = 0
@@ -209,7 +209,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_default_mapping = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
-"======== Syntastic ===========================
+"======== Syntastic ==========================
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -227,26 +227,27 @@ let g:syntastic_cpp_gcc_quiet_messages= {
 let g:syntastic_c_gcc_quiet_messages= {
     \ "regex":  "No such file or directory" }
 
-"====== AutoPair ==============================
+"====== AutoPair =============================
 let g:AutoPairsShortcutFastWrap = '<C-w>'
 
-"====== Easymotion ============================
+"====== Easymotion ===========================
 let g:EasyMotion_move_highlight = 0
+"let g:EasyMotion_do_mapping = 0 "disable default mapping to avoid conflict
 
-"====== incsearch =============================
+"====== incsearch ============================
 let g:incsearch#auto_nohlsearch = 1
 let g:incsearch#separate_highlight = 1
 let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
 
-"====== TagBar ================================
+"====== TagBar ===============================
 let g:tagbar_left = 0
 let g:tagbar_iconchars = ['▶', '▼']
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd BufEnter * nested :call tagbar#autoopen(1)
 
-"====== ConqueGdb =============================
+"====== ConqueGdb ============================
 let g:ConqueGdb_SrcSplit = 'left'
-let g:ConqueGdb_Leader = '<Leader>'
+let g:ConqueGdb_Leader = '\'
 let g:ConqueGdb_Run = g:ConqueGdb_Leader . 'r'
 let g:ConqueGdb_Continue = g:ConqueGdb_Leader . 'c'
 let g:ConqueGdb_Next = g:ConqueGdb_Leader . 'n'
@@ -257,7 +258,7 @@ let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
 let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
 let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
 
-"====== AnyFold ===============================
+"====== AnyFold ==============================
 filetype plugin indent on   " required
 syntax on                   " required
 let g:anyfold_activate = 1
@@ -266,10 +267,7 @@ let g:anyfold_fold_toplevel = 0
 set foldlevel=0
 set foldlevelstart=10
 
-"====== EasyGrep ==============================
-let g:EasyGrepFileAssociationsInExplorer = 1
-
-"====== Rainbow Parentheses ===================
+"====== Rainbow Parentheses ==================
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -291,12 +289,30 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-"====== Doxygen Toolkit =======================
+"====== Doxygen Toolkit ======================
 let g:DoxygenToolkit_commentType = "C++"
 
-"==============================================
-"========= Vim Custom Settings ================
-"==============================================
+"====== CtrlSF ===============================
+let g:ctrlsf_mapping = {
+    \ "open"    : ["<CR>", "o"],
+    \ "openb"   : "O",
+    \ "split"   : "<C-O>",
+    \ "vsplit"  : "",
+    \ "tab"     : "t",
+    \ "tabb"    : "T",
+    \ "popen"   : "p",
+    \ "popenf"  : "P",
+    \ "quit"    : "q",
+    \ "next"    : "<C-J>",
+    \ "prev"    : "<C-K>",
+    \ "pquit"   : "q",
+    \ "loclist" : "",
+    \ "chgmode" : "M",
+    \ }
+
+"=============================================
+"========= Vim Custom Settings ===============
+"=============================================
 if g:System_ == 'Linux'
     set shell=/bin/bash
 elseif g:System_ == 'Termux'
@@ -304,7 +320,7 @@ elseif g:System_ == 'Termux'
 endif
 set term=screen-256color
 
-"====== Appearence ============================
+"====== Appearence ===========================
 colo wombat256
 set cursorline
 "set cursorcolumn
@@ -316,9 +332,9 @@ set laststatus=2     " always show the status line
 
 " load the doxygen syntax and use enhanced highlight
 let g:load_doxygen_syntax = 1
-let g:doxygen_enhanced_color = 1
+"let g:doxygen_enhanced_color = 1
 
-"====== Behaviour =============================
+"====== Behaviour ============================
 syntax enable
 syntax on
 set tabstop=8
@@ -341,8 +357,11 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
 
-"====== Key Mappings ==========================
+"====== Key Mappings =========================
 let g:mapleader = ';'
+nnoremap <Leader><Leader> :
+
+" toggle paste mode
 set pastetoggle=<F1>
 
 " nerdTree toggle
@@ -370,7 +389,10 @@ nnoremap <C-s> :VimShell<CR>
 nnoremap <C-f> :e .<CR>
 
 " undo tree toggle
-nnoremap U :UndotreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
+
+" CtrlSF quick search
+nmap <Leader>/ <Plug>CtrlSFPrompt
 
 " rainbow parentheses toggle
 nnoremap <F9> :RainbowParenthesesLoadRound<CR>
@@ -389,31 +411,31 @@ nnoremap <F2> :tabnew<CR>
 nnoremap <F3> :tabclose<CR>
 
 " you complete me jump
-nnoremap <leader>ji :YcmCompleter GoToInclude<CR>
-nnoremap <leader>jD :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>ji :YcmCompleter GoToInclude<CR>
+nnoremap <Leader>jD :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>jd :YcmCompleter GoToDefinition<CR>
 
 " ctag goto definition/declaration
 nnoremap <Leader><C-]> <C-w><C-]><C-w>T
 
 " incsearch map
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+nmap n  <Plug>(incsearch-nohl-n)
+nmap N  <Plug>(incsearch-nohl-N)
+nmap *  <Plug>(incsearch-nohl-*)
+nmap #  <Plug>(incsearch-nohl-#)
+nmap g* <Plug>(incsearch-nohl-g*)
+nmap g# <Plug>(incsearch-nohl-g#)
+nmap /  <Plug>(incsearch-forward)
+nmap ?  <Plug>(incsearch-backward)
+nmap g/ <Plug>(incsearch-stay)
 
 " easymotion
-map \ <Plug>(easymotion-prefix)
-nmap \S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
+nmap <Leader>  <Plug>(easymotion-prefix)
+nmap <Leader>S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
-"====== Commands ==============================
+"====== Commands =============================
 command! Gdb ConqueGdb
 command! MarkdownPreview LivedownPreview
 command! AutoHighlightToggle :call AutoHighlightToggle()
@@ -425,7 +447,7 @@ autocmd Filetype python     nnoremap <silent> <C-Q> :!command -v zeal && zeal "p
 autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "html:<cword>"       > /dev/null 2>&1 &<CR><CR>
 autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
-"====== Functions =============================
+"====== Functions ============================
 function! AutoHighlightToggle()
     let @/ = ''
     if exists('#auto_highlight')
