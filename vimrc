@@ -81,7 +81,7 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pseewald/vim-anyfold'
@@ -109,6 +109,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
+Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                "needs php in $PATH
 "Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
