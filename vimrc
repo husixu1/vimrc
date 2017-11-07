@@ -88,6 +88,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'pseewald/vim-anyfold'
 
 Plug 'farmergreg/vim-lastplace'
+Plug 'mbbill/undotree'
 
 Plug 'cohama/agit.vim'
 
@@ -101,6 +102,7 @@ Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (p
 
 Plug 'dkprice/vim-easygrep'
 Plug 'ronakg/quickr-preview.vim'
+Plug 'vim-scripts/a.vim'
 " --------------- functional
 " language support ---------
 
@@ -194,12 +196,10 @@ elseif g:System_ == 'Termux'
 endif
 let g:airline#extensions#whitespace#enabled = 1
 
-"======== indentLine =========================
-"let g:indentLine_loaded = 1
-"let g:loaded_indentLine = 1
-"let g:indentLine_enabled = 1
-"let g:indentLine_char = '│'
-"let g:indentLine_leadingSpaceEnabled = 1
+"======== Undo Tree =========================
+let g:undotree_WindowLayout = 2
+let g:undotree_ShortIndicators = 1
+let g:undotree_HelpLine = 0
 
 "======== vim-indent guides===================
 let g:indent_guides_auto_colors = 0
@@ -346,44 +346,47 @@ let g:mapleader = ';'
 set pastetoggle=<F1>
 
 " nerdTree toggle
-map <C-n> :NERDTreeTabsToggle<CR>
+nnoremap <C-n> :NERDTreeTabsToggle<CR>
 
 " tagbar toggle
-map <C-t> :TagbarToggle<CR>
+nnoremap <C-t> :TagbarToggle<CR>
 
 " identGuide Show
-map <C-\> <Plug>IndentGuidesToggle
+nnoremap <C-\> <Plug>IndentGuidesToggle
 
 " Syntastic reset
-map <C-c> :SyntasticReset<CR>
+nnoremap <C-c> :SyntasticReset<CR>
 
-" DoxygenToolKit map
-map <S-m> :Dox<CR>
+" DoxygenToolKit nnoremap
+nnoremap <S-m> :Dox<CR>
 
 " agit show
-map <C-g> :Agit<CR>
+nnoremap <C-g> :Agit<CR>
 
 " VimShell
-map <C-s> :VimShell<CR>
+nnoremap <C-s> :VimShell<CR>
 
 " file finder
-map <C-f> :e .<CR>
+nnoremap <C-f> :e .<CR>
+
+" undo tree toggle
+nnoremap U :UndotreeToggle<CR>
 
 " rainbow parentheses toggle
-map <F9> :RainbowParenthesesLoadRound<CR>
+nnoremap <F9> :RainbowParenthesesLoadRound<CR>
             \:RainbowParenthesesLoadSquare<CR>
             \:RainbowParenthesesLoadBraces<CR>
             \:RainbowParenthesesLoadChevrons<CR>
-map <F10> :RainbowParenthesesToggle<CR>
+nnoremap <F10> :RainbowParenthesesToggle<CR>
 
 " tab operation
-map <S-l> :tabn<CR>
-map <S-h> :tabp<CR>
-map <C-S-l> :tabm+1<CR>
-map <C-S-h> :tabm-1<CR>
-map <F4> <C-w>T
-map <F2> :tabnew<CR>
-map <F3> :tabclose<CR>
+nnoremap <S-l> :tabn<CR>
+nnoremap <S-h> :tabp<CR>
+nnoremap <C-S-l> :tabm+1<CR>
+nnoremap <C-S-h> :tabm-1<CR>
+nnoremap <F4> <C-w>T
+nnoremap <F2> :tabnew<CR>
+nnoremap <F3> :tabclose<CR>
 
 " you complete me jump
 nnoremap <leader>ji :YcmCompleter GoToInclude<CR>

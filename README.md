@@ -70,7 +70,8 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |\<Leader\>d     |ConqueGdb\_DeleteBreak      |
 |                      |\<Leader\>f     |ConqueGdb\_Finish           |
 |                      |\<Leader\>t     |ConqueGdb\_Backtrace        |
-|Quickr-preveiew       |\<Leader\>space |quickfixPreview             |
+|Quickr-preveiew       |\<Leader\>space |QuickfixPreview             |
+|UndoTree              |U               |ToggleUndoTree              |
 |Buildin               |F1              |PasteToggle                 |
 |                      |F2              |NewTab                      |
 |                      |F3              |CloseCurrentTab             |
