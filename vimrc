@@ -102,6 +102,8 @@ Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (p
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
+
+Plug 'Chiel92/vim-autoformat'
 " --------------- functional
 " language support ---------
 
