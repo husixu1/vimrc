@@ -222,7 +222,6 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["c", "cpp", "python", "shell"],
     \ "passive_filetypes": ["asm", "tex"] }
 "let g:syntastic_cpp_checkers=['clang_check']
 let g:syntastic_cpp_gcc_quiet_messages= {
@@ -442,6 +441,7 @@ nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 command! Gdb ConqueGdb
 command! MarkdownPreview LivedownPreview
 command! AutoHighlightToggle :call AutoHighlightToggle()
+command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
 
 " requires zeal
 autocmd Filetype c          nnoremap <silent> <C-Q> :!command -v zeal && zeal "c:<cword>"          > /dev/null 2>&1 &<CR><CR>
