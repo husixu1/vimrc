@@ -1,6 +1,6 @@
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
-let g:System_ = 'Linux'
-"let g:System_ = 'Termux'
+let g:System_='Linux'
+"let g:System_='Termux'
 "%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
 "=============================================
@@ -82,6 +82,7 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pseewald/vim-anyfold'
@@ -451,6 +452,8 @@ autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "h
 autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
 "====== Functions ============================
+
+" Auto highlight toggle
 function! AutoHighlightToggle()
     let @/ = ''
     if exists('#auto_highlight')
@@ -469,3 +472,27 @@ function! AutoHighlightToggle()
         return 1
     endif
 endfunction
+
+" Auto fcitx toggle
+let g:input_toggle = 1
+function! Fcitx2en()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+   endif
+endfunction
+
+function! Fcitx2zh()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status != 2 && g:input_toggle == 1
+      let l:a = system("fcitx-remote -o")
+      let g:input_toggle = 0
+   endif
+endfunction
+
+set ttimeoutlen=100
+"exit insert mode
+autocmd InsertLeave * call Fcitx2en()
+"enter insert mode
+autocmd InsertEnter * call Fcitx2zh()
