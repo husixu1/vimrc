@@ -113,8 +113,6 @@ auto-installation is unstable thus removed.
 |                      |:SyntasticToggle|Toggle SyntasticCheck       |
 |YouCompleteMe         |:YcmDebugInfo   |When Ycm Has Some Problems  |
 |LivedownPreview       |:MarkdownPreview|view markdown in browser    |
-|EasyGrep              |:Grep           |grep in files               |
-|                      |:GrepOptions    |easygrep options            |
 |                      |                |                            |
 
 ## YCM config
