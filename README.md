@@ -5,18 +5,28 @@ to use it, follow the instructions below
 
 # TO USE THIS CONFIG
 
-## requirements
-* dependency
-    * nerd-font for powerline: in order to use devicon and vim-airline
-    * python2 / python3: essential
-    * gdb: in order to use Conque-gdb
-    * vim built with python support (non-dynamic)
+## external dependency
+| package          | depends on                                    |
+|-----------------:|:----------------------------------------------|
+| vim-devicons     | nerd-font in system font path                 |
+| vim-fugitive     | git                                           |
+| vim-merginal     | git                                           |
+| tagbar           | ctags                                         |
+| DoxygenToolKit   | doxygen                                       |
+| ctrlsf           | ack/silver                                    |
+| Conque-GDB       | gdb                                           |
+| vim-autoformat   | any formatter (astyle clang-format ... )      |
+| tagbar-markdown  | php                                           |
+| vimtex           | texlive; vim built with +clientserver         |
+| tagbar-markdown  | php                                           |
+| vim-livedown     | livedown (node pack, npm install -g livedown) |
 
 ## auto-installation
+auto-installation is unstable thus removed.
 
-run `./deploy.<platform>.sh` WITHOUT root privilige.
+~~run `./deploy.<platform>.sh` WITHOUT root privilige.~~
 
-<platform> can be archlinux or termux
+~~<platform> can be archlinux or termux~~
 
 ## manual-installation
 
@@ -28,7 +38,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 
 *use fonts for powerline in terminal vim to display airline arrows correctly*
 
-*disable devicons plugin if you don't need it, otherwise install nerd-fonts patch*
+*the installation of powerline/fonts might be very slow*
 
 ## frequently-used key mappings
 |plugin                |key             |mapping                     |
@@ -74,6 +84,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |Quickr-preveiew       |\<Leader\>space |QuickfixPreview             |
 |UndoTree              |\<Leader\>u     |ToggleUndoTree              |
 |CtrlSF                |\<Leader\>/     |CtrlSFPrompt                |
+|vimtex                |C-q             |QueryPackageDocument        |
 |Buildin               |F1              |PasteToggle                 |
 |                      |F2              |NewTab                      |
 |                      |F3              |CloseCurrentTab             |
@@ -85,7 +96,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |                      |C-h             |MoveTabLeft                 |
 |                      |\<Leader\>C-]   |CtagJumpAndOpenInNewWindow  |
 |                      |z/              |ToggleAutoHighlight         |
-|                      |C-q             |QueryInZeal(zeal required)|
+|                      |C-q             |QueryInZeal(zeal required)  |
 |                      |                |                            |
 
 ## frequently used commands
@@ -105,6 +116,7 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 |EasyGrep              |:Grep           |grep in files               |
 |                      |:GrepOptions    |easygrep options            |
 |                      |                |                            |
+
 ## YCM config
 
 * either-> create your own .ycm\_extra\_conf.py and put it in ~/.vim/custom
@@ -115,9 +127,8 @@ run `./deploy.<platform>.sh` WITHOUT root privilige.
 * once YCM functions normally, it's better to froze it from updating(add 'frozen' to ycm config in .vimrc). Updating YCM is somehow possible to cause a staring failure (fixable, though).
 
 #### known issues:
-* if Ycm didn't function normally, run :YcmDebugInfo and see corresponding file for debug info
-* if YCM SUFFERS AN SHUTDOWN, PLEASE RECOMPILE THE YCM CORE：
-* if you have run vim +PlugUpdate, YCM CORE might be too old to use, and should be recompiled manually
-* sometimes use system libclang fix the problem (and it's a must for Temux users)
+* if Ycm didn't function normally, run :YcmDebugInfo and see corresponding file for debug info.
+* if Ycm suffers an shutdown, please recompile the ycm core.
+* sometimes use system libclang fix the problem (and it's essential for Temux users)
 * if libtinfo missing, install it (from AUR for archlinux users), link it to a correct filename according to the debug info, and recompile ycm core
-* if libtinfo is still missing after the yaourt installation, install ncurses5-compat-libs from yaourt
+* if libtinfo is still missing after the yaourt installation, install ncurses5-compat-libs from AUR

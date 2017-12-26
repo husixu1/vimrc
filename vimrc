@@ -114,7 +114,8 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
 Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                "needs php in $PATH
 "Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
+"Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
+Plug 'lervag/vimtex', {'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 "needs npm install -g livedown
 Plug 'sheerun/vim-polyglot'
@@ -313,6 +314,16 @@ let g:ctrlsf_mapping = {
     \ "chgmode" : "M",
     \ }
 
+"====== Livedown =============================
+"let g:livedown_browser = "firefox"
+
+"====== VimTex ===============================
+let g:vimtex_doc_handlers = ['VimTexDocHandler']
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_mappings_enabled = 0
+
 "=============================================
 "========= Vim Custom Settings ===============
 "=============================================
@@ -362,6 +373,7 @@ filetype plugin on
 
 "====== Key Mappings =========================
 let g:mapleader = ';'
+let g:maplocalleader = ';'
 nnoremap <Leader><Leader> :
 
 " toggle paste mode
@@ -436,20 +448,25 @@ nmap g/ <Plug>(incsearch-stay)
 nmap <Leader>  <Plug>(easymotion-prefix)
 nmap <Leader>S <Plug>(incsearch-nohl)<Plug>(easymotion-sn)
 
+" vimtex
+autocmd Filetype tex        nmap <C-Q> <plug>(vimtex-doc-package)
+
+" auto highlight toggle
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+
+" document query, require zeal
+autocmd Filetype c          nnoremap <silent> <C-Q> :!command -v zeal && zeal "c:<cword>"          > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype cpp        nnoremap <silent> <C-Q> :!command -v zeal && zeal "cpp:<cword>"        > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype python     nnoremap <silent> <C-Q> :!command -v zeal && zeal "python:<cword>"     > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "html:<cword>"       > /dev/null 2>&1 &<CR><CR>
+autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
+
 
 "====== Commands =============================
 command! Gdb ConqueGdb
 command! MarkdownPreview LivedownPreview
 command! AutoHighlightToggle :call AutoHighlightToggle()
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
-
-" requires zeal
-autocmd Filetype c          nnoremap <silent> <C-Q> :!command -v zeal && zeal "c:<cword>"          > /dev/null 2>&1 &<CR><CR>
-autocmd Filetype cpp        nnoremap <silent> <C-Q> :!command -v zeal && zeal "cpp:<cword>"        > /dev/null 2>&1 &<CR><CR>
-autocmd Filetype python     nnoremap <silent> <C-Q> :!command -v zeal && zeal "python:<cword>"     > /dev/null 2>&1 &<CR><CR>
-autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "html:<cword>"       > /dev/null 2>&1 &<CR><CR>
-autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
 "====== Functions ============================
 
@@ -473,9 +490,10 @@ function! AutoHighlightToggle()
     endif
 endfunction
 
+" Auto fcitx toggle
 if g:System_ == 'Linux'
-    " Auto fcitx toggle
     let g:input_toggle = 0
+    " toggle to en when exit insert move
     function! Fcitx2en()
        let s:input_status = system("fcitx-remote")
        if s:input_status == 2
@@ -484,6 +502,7 @@ if g:System_ == 'Linux'
        endif
     endfunction
 
+    " toggle to cn when enter insert mode
     function! Fcitx2zh()
        let s:input_status = system("fcitx-remote")
        if s:input_status != 2 && g:input_toggle == 1
@@ -498,3 +517,12 @@ if g:System_ == 'Linux'
     "enter insert mode
     autocmd InsertEnter * call Fcitx2zh()
 endif
+
+" vimtex handler
+function! VimTexDocHandler(context)
+    call vimtex#doc#make_selection(a:context)
+    if !empty(a:context.selected)
+        execute '!texdoc' a:context.selected '&'
+    endif
+    return 1
+endfunction
