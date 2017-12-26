@@ -38,12 +38,6 @@ function! BuildVimProc(info)
     endif
 endfunction
 
-function! BuildVimDbgDependency(info)
-    if a:info.status == 'installed' || a:info.force
-        !sudo pip install dbgp
-    endif
-endfunction
-
 function! InstallPillow(info)
     if a:info.status == 'installed' || a:info.force
         if g:System_ == 'Linux'
@@ -62,7 +56,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-"Plug 'powerline/fonts', { 'do': function('InstallFont') }
+Plug 'powerline/fonts', { 'do': function('InstallFont') }
 Plug 'idanarye/vim-merginal'
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -98,7 +92,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript' }
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
 Plug 'vim-scripts/Conque-GDB'
-"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow)
+"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow) [problematic]
 
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
@@ -323,6 +317,7 @@ let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_mappings_enabled = 0
+let g:tex_flavor = 'latex'
 
 "=============================================
 "========= Vim Custom Settings ===============

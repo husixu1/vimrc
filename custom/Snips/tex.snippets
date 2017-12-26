@@ -1,5 +1,9 @@
 extends texmath
 
+snippet vimtex "vimtex directives" b
+%! TEX program = ${1:xelatex}$0
+endsnippet
+
 snippet "b(egin)?" "begin{} / end{}" br
 \begin{${1:something}}
 	${0:${VISUAL}}
