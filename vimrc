@@ -97,6 +97,7 @@ Plug 'vim-scripts/Conque-GDB'
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
+Plug 'craigemery/vim-autotag'
 
 Plug 'Chiel92/vim-autoformat'
 " --------------- functional
@@ -318,6 +319,21 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_mappings_enabled = 0
 let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'process',
+    \ 'background' : 1,
+    \ 'build_dir' : 'output',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-pdf',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 "=============================================
 "========= Vim Custom Settings ===============
@@ -361,6 +377,9 @@ set backspace=indent,eol,start
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
+
+" search ctags in parent dir if not found
+set tag=./tags;
 
 " autodetect filetype
 autocmd BufRead,BufNewFile *.ASM setfiletype asm

@@ -12,6 +12,7 @@ to use it, follow the instructions below
 | vim-fugitive     | git                                           |
 | vim-merginal     | git                                           |
 | tagbar           | ctags                                         |
+| vim-autoctag     | ctags                                         |
 | DoxygenToolKit   | doxygen                                       |
 | ctrlsf           | ack/silver                                    |
 | Conque-GDB       | gdb                                           |
@@ -20,6 +21,7 @@ to use it, follow the instructions below
 | vimtex           | texlive; vim built with +clientserver         |
 | tagbar-markdown  | php                                           |
 | vim-livedown     | livedown (node pack, npm install -g livedown) |
+|                  |                                               |
 
 ## auto-installation
 auto-installation is unstable thus removed.
