@@ -3,11 +3,11 @@ let g:System_='Linux'
 "let g:System_='Termux'
 "%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
 
-"=============================================
-"========= Vim Plugin Settings ===============
-"=============================================
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+"%%%%%%%%% Vim Plugin Settings %%%%%%%%%%%%%%%
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-"========= vim-plug ==========================
+"%%%%%%%%% vim-plug %%%%%%%%%%%%%%%%%%%%%%%%%%
 set nocompatible              " required
 
 let g:plug_threads = 8
@@ -15,7 +15,7 @@ let g:plug_timeout = 60
 let g:plug_retries = 2
 let g:plug_window = 'vertical topleft new'
 
-"--------- Post-update hooks-----
+"%%%%%%%%% Post-update hooks %%%%%%%%%%%%%%%%%
 function! InstallFont(info)
     if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
         !bash ./install.sh
@@ -48,7 +48,7 @@ function! InstallPillow(info)
     endif
 endfunction
 
-"--------- plugs -----------------
+"%%%%%%%%% plugs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 call plug#begin('~/.vim/plugged')
 
 Plug 'ryanoasis/vim-devicons'
@@ -117,9 +117,8 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()            " required
 filetype plugin indent on  " required
-"----------------------------------
 
-"========= NERDTree ==========================
+"%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 if g:System_ == 'Linux'
@@ -130,7 +129,7 @@ endif
 let g:NERDTreeDirArrowCollapsible = '▼'
 
 
-"========= YouCompleteMe =====================
+"%%%%%%%%% YouCompleteMe %%%%%%%%%%%%%%%%%%%%%
 let g:ycm_global_ycm_extra_conf = '~/.vim/custom/.ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['.']
 let g:ycm_python_binary_path = 'python'
@@ -153,7 +152,7 @@ let g:ycm_semantic_triggers = {
 \  'tex'  : ['{'],
 \ }
 
-"========= UltiSnip ==========================
+"%%%%%%%%% UltiSnip %%%%%%%%%%%%%%%%%%%%%%%%%%
 set rtp+=~/.vim/custom
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetsDir = "~/.vim/custom/Snips"
@@ -167,7 +166,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 let g:UltiSnipEditSplit = "normal"
 
-"========= Airline ===========================
+"%%%%%%%%% Airline %%%%%%%%%%%%%%%%%%%%%%%%%%%
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
@@ -196,12 +195,12 @@ elseif g:System_ == 'Termux'
 endif
 let g:airline#extensions#whitespace#enabled = 1
 
-"======== Undo Tree ==========================
+"%%%%%%%% Undo Tree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:undotree_WindowLayout = 2
 let g:undotree_ShortIndicators = 1
 let g:undotree_HelpLine = 0
 
-"======== vim-indent guides===================
+"%%%%%%%% vim-indent guides%%%%%%%%%%%%%%%%%%%
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 1
 let g:indent_guides_guide_size = 1
@@ -209,7 +208,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_default_mapping = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
-"======== Syntastic ==========================
+"%%%%%%%% Syntastic %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -226,25 +225,25 @@ let g:syntastic_cpp_gcc_quiet_messages= {
 let g:syntastic_c_gcc_quiet_messages= {
     \ "regex":  "No such file or directory" }
 
-"====== AutoPair =============================
+"%%%%%% AutoPair %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:AutoPairsShortcutFastWrap = '<C-w>'
 
-"====== Easymotion ===========================
+"%%%%%% Easymotion %%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:EasyMotion_move_highlight = 0
 "let g:EasyMotion_do_mapping = 0 "disable default mapping to avoid conflict
 
-"====== incsearch ============================
+"%%%%%% incsearch %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:incsearch#auto_nohlsearch = 1
 let g:incsearch#separate_highlight = 1
 let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
 
-"====== TagBar ===============================
+"%%%%%% TagBar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:tagbar_left = 0
 let g:tagbar_iconchars = ['▶', '▼']
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd BufEnter * nested :call tagbar#autoopen(1)
 
-"====== ConqueGdb ============================
+"%%%%%% ConqueGdb %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:ConqueGdb_SrcSplit = 'left'
 let g:ConqueGdb_Leader = '\'
 let g:ConqueGdb_Run = g:ConqueGdb_Leader . 'r'
@@ -257,7 +256,7 @@ let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
 let g:ConqueGdb_Finish = g:ConqueGdb_Leader . 'f'
 let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
 
-"====== AnyFold ==============================
+"%%%%%% AnyFold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 filetype plugin indent on   " required
 syntax on                   " required
 let g:anyfold_activate = 1
@@ -266,7 +265,7 @@ let g:anyfold_fold_toplevel = 0
 set foldlevel=0
 set foldlevelstart=10
 
-"====== Rainbow Parentheses ==================
+"%%%%%% Rainbow Parentheses %%%%%%%%%%%%%%%%%%
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -288,10 +287,10 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-"====== Doxygen Toolkit ======================
+"%%%%%% Doxygen Toolkit %%%%%%%%%%%%%%%%%%%%%%
 let g:DoxygenToolkit_commentType = "C++"
 
-"====== CtrlSF ===============================
+"%%%%%% CtrlSF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:ctrlsf_mapping = {
     \ "open"    : ["<CR>", "o"],
     \ "openb"   : "O",
@@ -309,10 +308,10 @@ let g:ctrlsf_mapping = {
     \ "chgmode" : "M",
     \ }
 
-"====== Livedown =============================
+"%%%%%% Livedown %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "let g:livedown_browser = "firefox"
 
-"====== VimTex ===============================
+"%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:vimtex_doc_handlers = ['VimTexDocHandler']
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
@@ -335,9 +334,9 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
-"=============================================
-"========= Vim Custom Settings ===============
-"=============================================
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+"%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if g:System_ == 'Linux'
     set shell=/bin/bash
 elseif g:System_ == 'Termux'
@@ -345,7 +344,7 @@ elseif g:System_ == 'Termux'
 endif
 set term=screen-256color
 
-"====== Appearence ===========================
+"%%%%%% Appearence %%%%%%%%%%%%%%%%%%%%%%%%%%%
 colo wombat256
 set cursorline
 "set cursorcolumn
@@ -359,7 +358,7 @@ set laststatus=2     " always show the status line
 let g:load_doxygen_syntax = 1
 "let g:doxygen_enhanced_color = 1
 
-"====== Behaviour ============================
+"%%%%%% Behaviour %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 syntax enable
 syntax on
 set tabstop=8
@@ -385,7 +384,7 @@ set tag=./tags;
 autocmd BufRead,BufNewFile *.ASM setfiletype asm
 filetype plugin on
 
-"====== Key Mappings =========================
+"%%%%%% Key Mappings %%%%%%%%%%%%%%%%%%%%%%%%%
 let g:mapleader = ';'
 let g:maplocalleader = ';'
 nnoremap <Leader><Leader> :
@@ -476,13 +475,13 @@ autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "h
 autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
 
-"====== Commands =============================
+"%%%%%% Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 command! Gdb ConqueGdb
 command! MarkdownPreview LivedownPreview
 command! AutoHighlightToggle :call AutoHighlightToggle()
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
 
-"====== Functions ============================
+"%%%%%% Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 " Auto highlight toggle
 function! AutoHighlightToggle()
