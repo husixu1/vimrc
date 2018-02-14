@@ -1,3 +1,4 @@
+" TODO: https://github.com/sunaku/vim-shortcut
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
 let g:System_='Linux'
 "let g:System_='Termux'
@@ -61,6 +62,7 @@ Plug 'idanarye/vim-merginal'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'severin-lemaignan/vim-minimap'
 
 " visual -------------------
 " --------------- functional
@@ -69,6 +71,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'majutsushi/tagbar'
+Plug 'yaroot/vissort'
 
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
@@ -97,9 +100,7 @@ Plug 'vim-scripts/Conque-GDB'
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
-Plug 'craigemery/vim-autotag'
-
-Plug 'Chiel92/vim-autoformat'
+Plug 'craigemery/vim-autotag'                                   "needs ctags
 " --------------- functional
 " language support ---------
 
@@ -219,7 +220,7 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["asm", "tex"] }
-"let g:syntastic_cpp_checkers=['clang_check']
+"let g:syntastic_cpp_checkers=["cppcheck"]
 let g:syntastic_cpp_gcc_quiet_messages= {
     \ "regex":  "No such file or directory" }
 let g:syntastic_c_gcc_quiet_messages= {
@@ -311,6 +312,11 @@ let g:ctrlsf_mapping = {
 "%%%%%% Livedown %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "let g:livedown_browser = "firefox"
 
+"%%%%%% Autoformat %%%%%%%%%%%%%%%%%%%%%%%%%%%
+let g:formatters_c = ['astyle']
+let g:formatters_cpp = ['astyle']
+let g:formatdef_astyle = '"astyle"'
+
 "%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:vimtex_doc_handlers = ['VimTexDocHandler']
 let g:vimtex_view_general_viewer = 'okular'
@@ -333,6 +339,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+let $TEXMFHOME = '/home/husixu/Software/texlive/texmf'  "change to your texmf location for autocompletion
 
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
@@ -366,7 +373,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set wildmode=longest,full
+set wildmode=longest,list
 set wildmenu
 set showmode
 
@@ -477,7 +484,7 @@ autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "j
 
 "%%%%%% Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 command! Gdb ConqueGdb
-command! MarkdownPreview LivedownPreview
+command! MarkdownToggle LivedownToggle
 command! AutoHighlightToggle :call AutoHighlightToggle()
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
 

@@ -1,3 +1,4 @@
+<!--TODO maybe a demo? -->
 # ABOUT
 
 this is an vim config specified for Linux and Termux (an terminal simulator on Android and iOS)
