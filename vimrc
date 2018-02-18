@@ -341,6 +341,9 @@ let g:vimtex_compiler_latexmk = {
     \}
 let $TEXMFHOME = '/home/husixu/Software/texlive/texmf'  "change to your texmf location for autocompletion
 
+"%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
+let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
+
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
