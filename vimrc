@@ -171,29 +171,30 @@ let g:UltiSnipEditSplit = "normal"
 set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
-if g:System_ == 'Linux'
+"Uncomment this if termux does not support styling
+"if g:System_ == 'Linux'
     let g:airline_powerline_fonts = 1
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
-elseif g:System_ == 'Termux'
-    let g:airline_powerline_fonts = 0
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols = {}
-    let g:airline_symbols.crypt = '🔒'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.maxlinenr = '☰'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.spell = 'Ꞩ'
-    let g:airline_symbols.notexists = '∄'
-    let g:airline_symbols.whitespace = 'Ξ'
-endif
+"elseif g:System_ == 'Termux'
+"    let g:airline_powerline_fonts = 0
+"    let g:airline_left_sep = ''
+"    let g:airline_left_alt_sep = ''
+"    let g:airline_right_sep = ''
+"    let g:airline_right_alt_sep = ''
+"    let g:airline_symbols = {}
+"    let g:airline_symbols.crypt = '🔒'
+"    let g:airline_symbols.linenr = '␊'
+"    let g:airline_symbols.linenr = '␤'
+"    let g:airline_symbols.maxlinenr = '☰'
+"    let g:airline_symbols.branch = '⎇'
+"    let g:airline_symbols.paste = 'ρ'
+"    let g:airline_symbols.spell = 'Ꞩ'
+"    let g:airline_symbols.notexists = '∄'
+"    let g:airline_symbols.whitespace = 'Ξ'
+"endif
 let g:airline#extensions#whitespace#enabled = 1
 
 "%%%%%%%% Undo Tree %%%%%%%%%%%%%%%%%%%%%%%%%%
