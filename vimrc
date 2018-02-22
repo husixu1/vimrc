@@ -178,6 +178,8 @@ let g:airline#extensions#tabline#show_close_button = 0
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
+    let g:airline_symbols = {}
+    let g:airline_symbols.linenr = 'Ξ'
 "elseif g:System_ == 'Termux'
 "    let g:airline_powerline_fonts = 0
 "    let g:airline_left_sep = ''
