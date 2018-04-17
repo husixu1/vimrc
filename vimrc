@@ -78,7 +78,8 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') } "need compile if auto compile failed
+"Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
@@ -94,13 +95,14 @@ Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript' }
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
-Plug 'vim-scripts/Conque-GDB'
+"Plug 'vim-scripts/Conque-GDB'
 "Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow) [problematic]
 
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   "needs ctags
+
 " --------------- functional
 " language support ---------
 
@@ -374,7 +376,7 @@ let g:load_doxygen_syntax = 1
 "%%%%%% Behaviour %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 syntax enable
 syntax on
-set tabstop=8
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
