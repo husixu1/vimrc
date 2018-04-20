@@ -368,6 +368,7 @@ set relativenumber
 set incsearch        " search when you type
 set hlsearch
 set laststatus=2     " always show the status line
+set fillchars+=vert:│
 
 " load the doxygen syntax and use enhanced highlight
 let g:load_doxygen_syntax = 1
