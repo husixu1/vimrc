@@ -1,7 +1,23 @@
 extends texmath
 
+# 1. select text
+# 2. press tab
+# 3. input it
+# 4. press tab again
+snippet i "italic selected" i
+\textit{${VISUAL}}
+endsnippet
+
+snippet bf "bold selected" i
+\textbf{${VISUAL}}
+endsnippet
+
 snippet vimtex "vimtex directives" b
 %! TEX program = ${1:xelatex}$0
+endsnippet
+
+snippet p "\par" b
+\par $0
 endsnippet
 
 snippet "b(egin)?" "begin{} / end{}" br

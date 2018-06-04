@@ -20,13 +20,13 @@ int main(int argc, char *argv[]){
 endsnippet
 
 snippet for "Multi-Line Loop" b
-for(${1:int ${2:i}}=0; $2 < ${3:Max}; ${4:++$2}){
+for(${3:${1:int} ${2:i}}=0; ${5:$2 < ${4:Max}}; ${6:++$2}){
     ${0:/* code */}
 }
 endsnippet
 
 snippet fors "Single-Line Loop" b
-for(${1:int ${2:i}}=0; $2 < ${3:Max}; ${4:++$2})
+for(${3:${1:int} ${2:i}}=0; ${5:$2 < ${4:Max}}; ${6:++$2})
     ${0:/* code */}
 endsnippet
 
@@ -82,6 +82,10 @@ snippet ifndef "C guard"
 $0
 
 #endif // $1
+endsnippet
+
+snippet //// "c" iA
+//[`whoami`] $0
 endsnippet
 
 snippet file "file declarration"

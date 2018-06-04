@@ -26,7 +26,7 @@ endfunction this
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
         if g:System_ == 'Linux'
-            !python ./install.py --clang-completer
+            !python ./install.py --clang-completer --js-completer --java-completer
         elseif g:System_ == 'Termux'
             !python ./install.py --clang-completer --system-libclang
         endif
@@ -91,7 +91,7 @@ Plug 'mbbill/undotree'
 Plug 'cohama/agit.vim'
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript' }
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript,java' }
 
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
@@ -102,6 +102,8 @@ Plug 'dyng/ctrlsf.vim'                                          "needs ack insta
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   "needs ctags
+Plug 'kshenoy/vim-signature'
+Plug 'alx741/vinfo'
 
 " --------------- functional
 " language support ---------
@@ -369,6 +371,7 @@ set incsearch        " search when you type
 set hlsearch
 set laststatus=2     " always show the status line
 set fillchars+=vert:│
+set colorcolumn=80
 
 " load the doxygen syntax and use enhanced highlight
 let g:load_doxygen_syntax = 1
@@ -490,6 +493,8 @@ autocmd Filetype python     nnoremap <silent> <C-Q> :!command -v zeal && zeal "p
 autocmd Filetype html       nnoremap <silent> <C-Q> :!command -v zeal && zeal "html:<cword>"       > /dev/null 2>&1 &<CR><CR>
 autocmd Filetype javascript nnoremap <silent> <C-Q> :!command -v zeal && zeal "javascript:<cword>" > /dev/null 2>&1 &<CR><CR>
 
+" dictionary query, requires qstardict
+nnoremap <S-Q> :!command -v qstardict && qstardict <cword> > /dev/null 2>&1 &<CR><CR>
 
 "%%%%%% Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 command! Gdb ConqueGdb
