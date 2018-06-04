@@ -16,20 +16,12 @@ to use it, follow the instructions below
 | vim-autoctag     | ctags                                         |
 | DoxygenToolKit   | doxygen                                       |
 | ctrlsf           | ack/silver                                    |
-| Conque-GDB       | gdb                                           |
 | vim-autoformat   | any formatter (astyle clang-format ... )      |
 | tagbar-markdown  | php                                           |
 | vimtex           | texlive; vim built with +clientserver         |
 | tagbar-markdown  | php                                           |
 | vim-livedown     | livedown (node pack, npm install -g livedown) |
 |                  |                                               |
-
-## auto-installation
-auto-installation is unstable thus removed.
-
-~~run `./deploy.<platform>.sh` WITHOUT root privilige.~~
-
-~~<platform> can be archlinux or termux~~
 
 ## manual-installation
 
@@ -74,16 +66,6 @@ auto-installation is unstable thus removed.
 |                      |zo,zO           |openFold, openFoldRecurse   |
 |RainbowParentheses    |F9              |LoadRainbowParentheses      |
 |                      |F10             |ToggleRainbowParentheses    |
-|ConqueGdb             |\<Leader\>      |ConqueGdbLeader(GLeader)    |
-|                      |\<GLeader\>r    |ConqueGdb\_Run              |
-|                      |\<GLeader\>c    |ConqueGdb\_Continue         |
-|                      |\<GLeader\>n    |ConqueGdb\_Next             |
-|                      |\<GLeader\>s    |ConqueGdb\_Step             |
-|                      |\<GLeader\>p    |ConqueGdb\_Print            |
-|                      |\<GLeader\>b    |ConqueGdb\_ToggleBreak      |
-|                      |\<GLeader\>d    |ConqueGdb\_DeleteBreak      |
-|                      |\<GLeader\>f    |ConqueGdb\_Finish           |
-|                      |\<GLeader\>t    |ConqueGdb\_Backtrace        |
 |Quickr-preveiew       |\<Leader\>space |QuickfixPreview             |
 |UndoTree              |\<Leader\>u     |ToggleUndoTree              |
 |CtrlSF                |\<Leader\>/     |CtrlSFPrompt                |
