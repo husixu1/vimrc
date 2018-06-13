@@ -102,7 +102,7 @@ Plug 'dyng/ctrlsf.vim'                                          "needs ack insta
 Plug 'ronakg/quickr-preview.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   "needs ctags
-Plug 'kshenoy/vim-signature'
+"Plug 'kshenoy/vim-signature'
 Plug 'alx741/vinfo'
 
 " --------------- functional
@@ -385,7 +385,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set wildmode=longest,list
+set wildmode=list:full
 set wildmenu
 set showmode
 
