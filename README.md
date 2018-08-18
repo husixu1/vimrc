@@ -98,7 +98,12 @@ to use it, follow the instructions below
 |                      |:SyntasticToggle|Toggle SyntasticCheck       |
 |YouCompleteMe         |:YcmDebugInfo   |When Ycm Has Some Problems  |
 |LivedownPreview       |:MarkdownPreview|view markdown in browser    |
+|vim-autoformat        |:Autoformat     |auto-formatting the code    |
 |                      |                |                            |
+
+## per-project config
+* put a `.clang-format` in the project root directory and use `:Autoformat` command to format the code
+* put `.syntastic_c`/`.syntastic_cpp`/`.syntastic_cuda` in the project root directory and add compiler flags to it so syntastic can use custom flag to compile the file. see vimrc file and `:h syntastic-checkers` for details.
 
 ## YCM config
 

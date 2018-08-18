@@ -1,4 +1,3 @@
-" TODO: https://github.com/sunaku/vim-shortcut
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
 let g:System_='Linux'
 "let g:System_='Termux'
@@ -144,6 +143,7 @@ let g:ycm_key_list_select_completion = ['<C-j>', '<S-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_complete_in_comments = 1
+let g:ycm_confirm_extra_conf = 0
 " disables the check of ycm and uses syntastic insted
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_enable_diagnostic_signs = 0
@@ -232,6 +232,9 @@ let g:syntastic_cpp_gcc_quiet_messages= {
     \ "regex":  "No such file or directory" }
 let g:syntastic_c_gcc_quiet_messages= {
     \ "regex":  "No such file or directory" }
+let g:syntastic_cuda_config_file = ".syntastic_cuda"
+let g:syntastic_c_config_file = ".syntastic_c"
+let g:syntastic_cpp_config_file = ".syntastic_cpp"
 
 "%%%%%% AutoPair %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:AutoPairsShortcutFastWrap = '<C-w>'
@@ -320,9 +323,12 @@ let g:ctrlsf_mapping = {
 "let g:livedown_browser = "firefox"
 
 "%%%%%% Autoformat %%%%%%%%%%%%%%%%%%%%%%%%%%%
-let g:formatters_c = ['astyle']
-let g:formatters_cpp = ['astyle']
-let g:formatdef_astyle = '"astyle"'
+"let g:formatters_c = ['astyle']
+"let g:formatters_cpp = ['astyle']
+"let g:formatdef_astyle = '"astyle"'
+let g:formatters_c = ['clang']
+let g:formatters_cpp = ['clang']
+let g:formatdef_clang = '"clang-format -style=file"'
 
 "%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:vimtex_doc_handlers = ['VimTexDocHandler']
@@ -385,7 +391,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set wildmode=list:full
+set wildmode=list,full
 set wildmenu
 set showmode
 
