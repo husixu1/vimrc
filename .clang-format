@@ -48,7 +48,7 @@ ColumnLimit:     80
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 8
+ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
 DerivePointerAlignment: false
@@ -91,9 +91,18 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 60
 PointerAlignment: Right
 RawStringFormats:
-  - Delimiter:       pb
-    Language:        TextProto
-    BasedOnStyle:    google
+  - Language: TextProto
+    Delimiters:
+      - 'pb'
+      - 'proto'
+    EnclosingFunctions:
+      - 'PARSE_TEXT_PROTO'
+    BasedOnStyle: google
+  - Language: Cpp
+    Delimiters:
+      - 'cc'
+      - 'cpp'
+    BasedOnStyle: llvm
 ReflowComments:  true
 SortIncludes:    true
 SortUsingDeclarations: true
