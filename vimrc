@@ -1,3 +1,5 @@
+" TODO: https://github.com/sunaku/vim-shortcut
+" TODO: remove vim shell since vim support shell natively now
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
 let g:System_='Linux'
 "let g:System_='Termux'
@@ -98,7 +100,7 @@ Plug 'Shougo/vimshell.vim'
 "Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow) [problematic]
 
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
-Plug 'ronakg/quickr-preview.vim'
+"Plug 'ronakg/quickr-preview.vim'   " cause ycm jump bug
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   "needs ctags
 "Plug 'kshenoy/vim-signature'
@@ -235,6 +237,7 @@ let g:syntastic_c_gcc_quiet_messages= {
 let g:syntastic_cuda_config_file = ".syntastic_cuda"
 let g:syntastic_c_config_file = ".syntastic_c"
 let g:syntastic_cpp_config_file = ".syntastic_cpp"
+let g:syntastic_sh_shellcheck_args = "-x" " to allow source another shell script
 
 "%%%%%% AutoPair %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:AutoPairsShortcutFastWrap = '<C-w>'
@@ -365,7 +368,10 @@ if g:System_ == 'Linux'
 elseif g:System_ == 'Termux'
     set shell=/data/data/com.termux/files/usr/bin/bash
 endif
-set term=screen-256color
+
+if !has('nvim')
+    set term=screen-256color
+endif
 
 "%%%%%% Appearence %%%%%%%%%%%%%%%%%%%%%%%%%%%
 colo wombat256
