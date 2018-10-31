@@ -1,5 +1,3 @@
-" TODO: https://github.com/sunaku/vim-shortcut
-" TODO: remove vim shell since vim support shell natively now
 "%%%%% DO NOT MODIFY THIS PART %%%%%%
 let g:System_='Linux'
 "let g:System_='Termux'
@@ -64,6 +62,7 @@ Plug 'idanarye/vim-merginal'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " visual -------------------
 " --------------- functional
@@ -82,6 +81,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') } "need compile if auto compile failed
 "Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pseewald/vim-anyfold'
@@ -276,6 +276,7 @@ syntax on                   " required
 let g:anyfold_activate = 1
 let g:anyfold_identify_comments = 0
 let g:anyfold_fold_toplevel = 0
+let g:anyfold_identify_comments = 1
 set foldlevel=0
 set foldlevelstart=10
 
@@ -331,6 +332,7 @@ let g:ctrlsf_mapping = {
 "let g:formatdef_astyle = '"astyle"'
 let g:formatters_c = ['clang']
 let g:formatters_cpp = ['clang']
+let g:formatters_cuda = ['clang']
 let g:formatdef_clang = '"clang-format -style=file"'
 
 "%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -369,6 +371,7 @@ elseif g:System_ == 'Termux'
     set shell=/data/data/com.termux/files/usr/bin/bash
 endif
 
+" this option is not nvim compatible
 if !has('nvim')
     set term=screen-256color
 endif
@@ -512,6 +515,7 @@ nnoremap <S-Q> :!command -v qstardict && qstardict <cword> > /dev/null 2>&1 &<CR
 command! Gdb ConqueGdb
 command! MarkdownToggle LivedownToggle
 command! AutoHighlightToggle :call AutoHighlightToggle()
+command! AF Autoformat
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
 
 "%%%%%% Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
