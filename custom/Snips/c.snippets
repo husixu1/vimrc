@@ -1,9 +1,9 @@
-snippet #inc "#include< ... >" b
-#include<${1:...}>$0
+snippet #inc "#include < ... >" b
+#include <${1:...}>$0
 endsnippet
 
-snippet #incl "#include'...' " b
-#include"${1:...}"$0
+snippet #incl "#include '...' " b
+#include "${1:...}"$0
 endsnippet
 
 snippet main "main() without args" b
@@ -20,13 +20,13 @@ int main(int argc, char *argv[]){
 endsnippet
 
 snippet for "Multi-Line Loop" b
-for(${3:${1:int} ${2:i}}=0; ${5:$2 < ${4:Max}}; ${6:++$2}){
+for(${3:${1:int} ${2:i}=0}; ${5:$2 < ${4:Max}}; ${6:++$2}){
     ${0:/* code */}
 }
 endsnippet
 
 snippet fors "Single-Line Loop" b
-for(${3:${1:int} ${2:i}}=0; ${5:$2 < ${4:Max}}; ${6:++$2})
+for(${3:${1:int} ${2:i}=0}; ${5:$2 < ${4:Max}}; ${6:++$2})
     ${0:/* code */}
 endsnippet
 
@@ -84,7 +84,11 @@ $0
 #endif // $1
 endsnippet
 
-snippet //// "c" iA
+snippet //m "inline dox comment" iA
+///< @brief $0
+endsnippet
+
+snippet //n "comment with name" iA
 //[`whoami`] $0
 endsnippet
 

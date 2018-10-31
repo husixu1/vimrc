@@ -4,12 +4,22 @@ extends texmath
 # 2. press tab
 # 3. input it
 # 4. press tab again
-snippet i "italic selected" i
+snippet it "italic selected" i
 \textit{${VISUAL}}
 endsnippet
 
 snippet bf "bold selected" i
 \textbf{${VISUAL}}
+endsnippet
+
+snippet mi "math inline" i
+\(${VISUAL}\)
+endsnippet
+
+snippet md "math display" i
+\[
+	${VISUAL}
+\]
 endsnippet
 
 snippet vimtex "vimtex directives" b
@@ -70,7 +80,7 @@ snippet desc "Description" b
 \end{description}
 endsnippet
 
-snippet it "Individual item" b
+snippet i "Individual item" b
 \item $1
 $0
 endsnippet

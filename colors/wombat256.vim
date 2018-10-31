@@ -72,4 +72,7 @@ hi IndentGuidesEven ctermbg=236
 hi! link FoldColumn		Folded
 hi! link CursorColumn	CursorLine
 
+" color column
+hi ColorColumn ctermbg=235
+
 " vim:set ts=4 sw=4 noet:
