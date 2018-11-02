@@ -97,10 +97,10 @@ Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript,java' }
 Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
 Plug 'Shougo/vimshell.vim'
 "Plug 'vim-scripts/Conque-GDB'
-"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }    "needs pillow (pip install pillow) [problematic]
+"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }   "needs pillow (pip install pillow) [problematic]
 
 Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
-"Plug 'ronakg/quickr-preview.vim'   " cause ycm jump bug
+"Plug 'ronakg/quickr-preview.vim'                               " cause ycm jump bug
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   "needs ctags
 "Plug 'kshenoy/vim-signature'
@@ -108,6 +108,9 @@ Plug 'alx741/vinfo'
 
 " --------------- functional
 " language support ---------
+
+"Plug 'derekwyatt/vim-fswitch'                                   " vim-protodef dependency
+"Plug 'derekwyatt/vim-protodef'                                  " needs perl, doesn't support template
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
@@ -273,12 +276,30 @@ let g:ConqueGdb_Backtrace = g:ConqueGdb_Leader . 't'
 "%%%%%% AnyFold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 filetype plugin indent on   " required
 syntax on                   " required
-let g:anyfold_activate = 1
+"let g:anyfold_activate = 1 " deprecated, use autocmd instead
 let g:anyfold_identify_comments = 0
 let g:anyfold_fold_toplevel = 0
 let g:anyfold_identify_comments = 1
+set foldmethod=syntax
 set foldlevel=0
 set foldlevelstart=10
+
+" enable anyfold by default
+augroup AnyFold
+    autocmd!
+    autocmd Filetype * AnyFoldActivate
+augroup END
+
+" disable anyfold for large files
+let g:LargeFile = 1000000 " file is large if size greater than 1MB
+autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) |
+            \ if f > g:LargeFile || f == -2 | call LargeFile() | endif
+function LargeFile()
+    augroup anyfold
+        autocmd! " remove AnyFoldActivate
+        autocmd Filetype * setlocal foldmethod=indent " fall back to indent folding
+    augroup END
+endfunction
 
 "%%%%%% Rainbow Parentheses %%%%%%%%%%%%%%%%%%
 let g:rbpt_colorpairs = [
@@ -322,6 +343,14 @@ let g:ctrlsf_mapping = {
     \ "loclist" : "",
     \ "chgmode" : "M",
     \ }
+let g:ctrlsf_auto_close = {
+    \ "normal" : 1,
+    \ "compact": 1
+    \ }
+let g:ctrlsf_auto_focus = {
+    \ "at" : "start"
+    \ }
+let g:ctrlsf_default_view_mode = 'normal'
 
 "%%%%%% Livedown %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "let g:livedown_browser = "firefox"
@@ -361,6 +390,9 @@ let $TEXMFHOME = '/home/husixu/Software/texlive/texmf'  "change to your texmf lo
 
 "%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
+
+"%%%%%%%%% Protodef %%%%%%%%%%%%%%%%%%%%%%%%%%
+let g:protodefprotogetter = '~/.vim/custom/pullproto.pl'
 
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
@@ -517,6 +549,7 @@ command! MarkdownToggle LivedownToggle
 command! AutoHighlightToggle :call AutoHighlightToggle()
 command! AF Autoformat
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
+command! Todo noautocmd CtrlSF -C 0 -R TODO|FIXME|NOTE **
 
 "%%%%%% Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -576,3 +609,10 @@ function! VimTexDocHandler(context)
     endif
     return 1
 endfunction
+
+"%%%%%% Auto Commands %%%%%%%%%%%%%%%%%%%%%%%%
+
+" save fold when closing files and load when opening
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
+
