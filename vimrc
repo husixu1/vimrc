@@ -123,6 +123,7 @@ Plug 'lervag/vimtex', {'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 "needs npm install -g livedown
 Plug 'sheerun/vim-polyglot'
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -296,8 +297,8 @@ autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) |
             \ if f > g:LargeFile || f == -2 | call LargeFile() | endif
 function LargeFile()
     augroup anyfold
-        autocmd! " remove AnyFoldActivate
-        autocmd Filetype * setlocal foldmethod=indent " fall back to indent folding
+        autocmd!
+        autocmd Filetype * set foldmethod=indent " fall back to indent folding
     augroup END
 endfunction
 
@@ -362,6 +363,7 @@ let g:ctrlsf_default_view_mode = 'normal'
 let g:formatters_c = ['clang']
 let g:formatters_cpp = ['clang']
 let g:formatters_cuda = ['clang']
+let g:formatters = ['stylish-haskell']
 let g:formatdef_clang = '"clang-format -style=file"'
 
 "%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -403,8 +405,8 @@ elseif g:System_ == 'Termux'
     set shell=/data/data/com.termux/files/usr/bin/bash
 endif
 
-" this option is not nvim compatible
-if !has('nvim')
+" this option is neither nvim compatible nor fbterm compatible
+if !has('nvim') && !$TERM == 'fbterm'
     set term=screen-256color
 endif
 
@@ -550,6 +552,7 @@ command! AutoHighlightToggle :call AutoHighlightToggle()
 command! AF Autoformat
 command! -nargs=* Make make <args> | cwindow             "open quickfix after make automatically
 command! Todo noautocmd CtrlSF -C 0 -R TODO|FIXME|NOTE **
+command! HilightSync syntax sync fromstart
 
 "%%%%%% Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
