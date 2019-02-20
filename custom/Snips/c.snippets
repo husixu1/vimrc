@@ -76,7 +76,7 @@ printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2
 endsnippet
 
 snippet ifndef "C guard"
-#ifndef ${1:...}
+#ifndef ${1:`!p snip.rv = "_" + "".join([c.upper() if c.isalnum() else "_" for c in fn]) + "_"`}
 #define $1
 
 $0

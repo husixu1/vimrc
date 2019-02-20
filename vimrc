@@ -616,6 +616,6 @@ endfunction
 "%%%%%% Auto Commands %%%%%%%%%%%%%%%%%%%%%%%%
 
 " save fold when closing files and load when opening
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
+" au BufWinLeave ?* mkview 1
+" au BufWinEnter ?* silent loadview 1
 
