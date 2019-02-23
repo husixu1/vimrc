@@ -373,15 +373,15 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_mappings_enabled = 0
 let g:tex_flavor = 'latex'
+
+" let 'backend' be automatically detected here
 let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'process',
     \ 'background' : 1,
     \ 'build_dir' : 'output',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
     \ 'options' : [
-    \   '-pdf',
     \   '-verbose',
     \   '-file-line-error',
     \   '-synctex=1',
