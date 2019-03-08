@@ -489,6 +489,7 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " CtrlSF quick search
 nmap <Leader>/ <Plug>CtrlSFPrompt
+nmap <Leader>? <Plug>CtrlSFCCwordPath
 
 " rainbow parentheses toggle
 nnoremap <F9> :RainbowParenthesesLoadRound<CR>
