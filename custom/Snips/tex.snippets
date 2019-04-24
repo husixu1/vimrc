@@ -5,21 +5,19 @@ extends texmath
 # 3. input it
 # 4. press tab again
 snippet it "italic selected" i
-\textit{${VISUAL}}
+\textit{${1:${VISUAL}}}$0
 endsnippet
 
 snippet bf "bold selected" i
-\textbf{${VISUAL}}
+\textbf{${1:${VISUAL}}}$0
 endsnippet
 
 snippet mi "math inline" i
-\(${VISUAL}\)
+\(${1:${VISUAL}}\)$0
 endsnippet
 
 snippet md "math display" i
-\[
-	${VISUAL}
-\]
+\[${1:${VISUAL}}\]$0
 endsnippet
 
 snippet vimtex "vimtex directives" b
