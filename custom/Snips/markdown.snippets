@@ -1,15 +1,23 @@
+snippet e "enumerate" b
+1. $0
+endsnippet
+
+snippet i "item" b
+* $0
+endsnippet
+
 snippet it "italic" i
-*${1}*
+*${VISUAL}*
 endsnippet
 
 snippet b "bold" i
-**${1}**
+**${VISUAL}**
 endsnippet
 
 snippet mi "math inline" i
-\(${1}\)
+\(${VISUAL}\)
 endsnippet
 
 snippet md "math display" i
-\[${1}\]
+\[${VISUAL}\]
 endsnippet
