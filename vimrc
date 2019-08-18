@@ -25,7 +25,7 @@ endfunction this
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
         if g:System_ == 'Linux'
-            !python ./install.py --clang-completer --js-completer --java-completer
+            !python ./install.py --clang-completer --system-libclang --js-completer --java-completer
         elseif g:System_ == 'Termux'
             !python ./install.py --clang-completer --system-libclang
         endif
@@ -94,15 +94,15 @@ Plug 'cohama/agit.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'c,cpp,python,javascript,java' }
 
-Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }        "vimshell dependency
-Plug 'Shougo/vimshell.vim'
+"Plug 'Shougo/vimproc', { 'do':function('BuildVimProc') }       " vimshell dependency
+"Plug 'Shougo/vimshell.vim'                                     " vim suports terminal natively now so no shell needed
 "Plug 'vim-scripts/Conque-GDB'
-"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }   "needs pillow (pip install pillow) [problematic]
+"Plug 'ashisha/image.vim', { 'do':function('InstallPillow') }   " needs pillow (pip install pillow) [problematic]
 
-Plug 'dyng/ctrlsf.vim'                                          "needs ack installed (pacman -S ack)
+Plug 'dyng/ctrlsf.vim'                                          " needs ack installed (pacman -S ack)
 "Plug 'ronakg/quickr-preview.vim'                               " cause ycm jump bug
 Plug 'vim-scripts/a.vim'
-Plug 'craigemery/vim-autotag'                                   "needs ctags
+Plug 'craigemery/vim-autotag'                                   " needs ctags
 "Plug 'kshenoy/vim-signature'
 Plug 'alx741/vinfo'
 
@@ -116,14 +116,16 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
-Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                "needs php in $PATH
+Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                " needs php in $PATH
 "Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 "Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 Plug 'lervag/vimtex', {'for': 'tex,latex'}
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 "Plug 'vim-scripts/bash-support.vim'
-Plug 'shime/vim-livedown', { 'for': 'markdown'}                 "needs npm install -g livedown
+Plug 'shime/vim-livedown', { 'for': 'markdown'}                 " needs npm install -g livedown
 Plug 'sheerun/vim-polyglot'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'rhysd/vim-grammarous'                                     " natural language grammar checker
 
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -388,7 +390,10 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-let $TEXMFHOME = '/home/husixu/Software/texlive/texmf'  "change to your texmf location for autocompletion
+let $TEXMFHOME = '/home/husixu/Software/texlive/2019'  "change to your texmf location for autocompletion
+
+"%%%%%% tex-conceal %%%%%%%%%%%%%%%%%%%%%%%%%%
+let g:tex_conceal="abdgm"
 
 "%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
@@ -437,10 +442,15 @@ set smartindent
 set wildmode=list,full
 set wildmenu
 set showmode
+set conceallevel=2
 
 set fileencodings=utf8,cp936,gb18030,big5
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
 set backspace=indent,eol,start
+
+" turn on english grammar checking for some file type
+autocmd FileType tex,markdown,text set spell
+set spelllang=en_us,cjk
 
 " autoremove trailing whitespace when saving
 autocmd BufWritePre * %s/\s\+$//e
@@ -478,8 +488,8 @@ nnoremap <S-m> :Dox<CR>
 " agit show
 nnoremap <C-g> :Agit<CR>
 
-" VimShell
-nnoremap <C-s> :VimShell<CR>
+" Fix Syntax error
+nnoremap <C-s> <C-g>u<Esc>[s1z=`]a<C-g>u
 
 " file finder
 nnoremap <C-f> :e .<CR>

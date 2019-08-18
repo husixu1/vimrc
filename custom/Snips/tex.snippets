@@ -1,94 +1,21 @@
 extends texmath
 
-# 1. select text
-# 2. press tab
-# 3. input it
-# 4. press tab again
-snippet it "italic selected" i
-\textit{${1:${VISUAL}}}$0
-endsnippet
-
-snippet bf "bold selected" i
-\textbf{${1:${VISUAL}}}$0
-endsnippet
-
-snippet mi "math inline" i
-\(${1:${VISUAL}}\)$0
-endsnippet
-
-snippet md "math display" i
-\[${1:${VISUAL}}\]$0
-endsnippet
-
+# Commands #########################
+####################################
 snippet vimtex "vimtex directives" b
 %! TEX program = ${1:xelatex}$0
 endsnippet
 
-snippet p "\par" b
-\par $0
+snippet title "title" b
+\title{${1:${VISUAL}}}$0
 endsnippet
 
-snippet "b(egin)?" "begin{} / end{}" br
-\begin{${1:something}}
-	${0:${VISUAL}}
-\end{$1}
+snippet pac "Package" b
+\usepackage[${1:options}]{${2:package}}$0
 endsnippet
 
-snippet tab "tabular / array environment" b
-\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
-$0${2/(?<=.)(c|l|r)|./(?1: & )/g}
-\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
-endsnippet
-
-snippet table "Table environment" b
-\begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
-	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
-	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
-\end{table}
-endsnippet
-
-snippet fig "Figure environment" b
-\begin{figure}[${2:htpb}]
-	\centering
-	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
-	\caption{${4/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${4/(\w+)\.\w+/$1/}}
-\end{figure}
-endsnippet
-
-snippet enum "Enumerate" b
-\begin{enumerate}
-	\item $0
-\end{enumerate}
-endsnippet
-
-snippet item "Itemize" b
-\begin{itemize}
-	\item $0
-\end{itemize}
-endsnippet
-
-snippet desc "Description" b
-\begin{description}
-	\item[$1] $0
-\end{description}
-endsnippet
-
-snippet i "Individual item" b
-\item $1
-$0
-endsnippet
-
-snippet part "Part" b
-\part{${1:part name}}
-\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
-
-$0
-endsnippet
+# Hierarchy ########################
+####################################
 
 snippet cha "Chapter" b
 \chapter{${1:chapter name}}
@@ -137,11 +64,107 @@ snippet ni "Non-indented paragraph" b
 $0
 endsnippet
 
-snippet pac "Package" b
-\usepackage[${1:options}]{${2:package}}$0
-endsnippet
-
 snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
+endsnippet
+
+# Formats ##########################
+####################################
+
+snippet it "italic selected" i
+\textit{${1:${VISUAL}}}$0
+endsnippet
+
+snippet bf "bold selected" i
+\textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet mi "math inline" i
+\(${1:${VISUAL}}\)$0
+endsnippet
+
+snippet md "math display" i
+\[
+	${1:${VISUAL}}
+\]$0
+endsnippet
+
+snippet p "\par" b
+\par $0
+endsnippet
+
+# Environments #####################
+####################################
+
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet tab "tabular / array environment" b
+\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+$0${2/(?<=.)(c|l|r)|./(?1: & )/g}
+\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
+	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\end{table}
+endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[${2:htpb}]
+	\centering
+	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
+	\caption{${4/(\w+)\.\w+/\u$1/}$0}
+	\label{fig:${4/(\w+)\.\w+/$1/}}
+\end{figure}
+endsnippet
+
+#snippet figvec "Vector figure" b
+#\begin{figure}[${2:htpb}]
+#    \centering
+#	\def\svgwidth{${3:0.8}\linewidth}
+#    \import{./img/}{.pdf_tex}
+#    \caption{Riemmans theorem}
+#    \label{fig:riemmans-theorem}
+#\end{figure}
+#endsnippet
+
+snippet enum "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+snippet i "Individual item" b
+\item $1
+$0
+endsnippet
+
+snippet part "Part" b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
+
+$0
 endsnippet
 # vim:ft=snippets:

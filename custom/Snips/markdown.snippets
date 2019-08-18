@@ -7,17 +7,17 @@ snippet i "item" b
 endsnippet
 
 snippet it "italic" i
-*${VISUAL}*
+*${1:${VISUAL}}* $0
 endsnippet
 
 snippet b "bold" i
-**${VISUAL}**
+**${1:${VISUAL}}** $0
 endsnippet
 
 snippet mi "math inline" i
-\(${VISUAL}\)
+\(${1:${VISUAL}}\)$0
 endsnippet
 
 snippet md "math display" i
-\[${VISUAL}\]
+\[${1:${VISUAL}}\]$0
 endsnippet
