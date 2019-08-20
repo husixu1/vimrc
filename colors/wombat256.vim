@@ -17,7 +17,6 @@ endif
 
 let colors_name = "wombat256"
 
-
 " General colors
 hi Normal		ctermfg=254		ctermbg=234		cterm=none		guifg=#f6f3e8	guibg=#242424	gui=none
 hi Cursor		ctermfg=none	ctermbg=33		cterm=none		guifg=NONE		guibg=#0087ff	gui=none
@@ -31,8 +30,14 @@ hi VertSplit	ctermfg=243		ctermbg=234		cterm=none		guifg=#444444	guibg=#444444	g
 hi StatusLineNC	ctermfg=243		ctermbg=238		cterm=none		guifg=#857b6f	guibg=#444444	gui=none
 hi LineNr		ctermfg=243		ctermbg=0		cterm=none		guifg=#857b6f	guibg=#000000	gui=none
 hi SpecialKey	ctermfg=244		ctermbg=236		cterm=none		guifg=#808080	guibg=#343434	gui=none
-"hi NonText		ctermfg=244		ctermbg=236		cterm=none		guifg=#808080	guibg=#303030	gui=none
 hi NonText		ctermfg=234		ctermbg=234		cterm=none		guifg=#808080	guibg=#303030	gui=none
+hi Conceal		ctermfg=172		ctermbg=234     cterm=bold		guifg=#8f8f8f	gui=italic
+hi Error		ctermfg=9		ctermbg=234     cterm=underline guifg=#ff0000   guibg=#303030	gui=none
+
+hi SpellBad		ctermfg=9		ctermbg=234     cterm=underline gui=undercurl
+hi SpellCap     ctermfg=12      ctermbg=234     cterm=underline gui=undercurl
+hi SpellRare    ctermfg=251		ctermbg=234	    cterm=underline gui=undercurl
+hi SpellLocal   ctermfg=251		ctermbg=234		cterm=underline gui=undercurl
 
 " Vim >= 7.0 specific colors
 if version >= 700
@@ -42,7 +47,6 @@ hi Pmenu		ctermfg=7		ctermbg=238						guifg=#f6f3e8	guibg=#444444
 hi PmenuSel		ctermfg=0		ctermbg=192						guifg=#000000	guibg=#cae682
 endif
 
-
 " Syntax highlighting
 hi Keyword		ctermfg=111		cterm=none		guifg=#8ac6f2	gui=none
 hi Statement	ctermfg=111		cterm=none		guifg=#8ac6f2	gui=none
@@ -51,7 +55,7 @@ hi Number		ctermfg=173		cterm=none		guifg=#e5786d	gui=none
 hi PreProc		ctermfg=173		cterm=none		guifg=#e5786d	gui=none
 hi Function		ctermfg=192		cterm=none		guifg=#cae682	gui=none
 hi Identifier	ctermfg=192		cterm=none		guifg=#cae682	gui=none
-hi Type			ctermfg=192		cterm=none		guifg=#cae682	gui=none
+hi Type			ctermfg=194		cterm=none		guifg=#cae682	gui=none
 hi Special		ctermfg=194		cterm=none		guifg=#e7f6da	gui=none
 hi String		ctermfg=113		cterm=none		guifg=#95e454	gui=italic
 hi Comment		ctermfg=246		cterm=none		guifg=#99968b	gui=italic
@@ -71,6 +75,7 @@ hi IndentGuidesEven ctermbg=236
 " Links
 hi! link FoldColumn		Folded
 hi! link CursorColumn	CursorLine
+
 
 " color column
 hi ColorColumn ctermbg=235
