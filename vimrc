@@ -489,7 +489,7 @@ nnoremap <S-m> :Dox<CR>
 nnoremap <C-g> :Agit<CR>
 
 " Fix Syntax error
-nnoremap <C-s> <C-g>u<Esc>[s1z=`]a<C-g>u
+inoremap <C-s> <C-g>u<Esc>[s1z=`]a<C-g>u
 
 " file finder
 nnoremap <C-f> :e .<CR>
