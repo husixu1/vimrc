@@ -390,7 +390,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-let $TEXMFHOME = '/home/husixu/Software/texlive/2019'  "change to your texmf location for autocompletion
+let $TEXMFHOME = '/home/husixu/texmf'  "change to your texmf location for autocompletion
 
 "%%%%%% tex-conceal %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:tex_conceal="abdgm"
