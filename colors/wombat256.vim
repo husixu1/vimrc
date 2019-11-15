@@ -29,6 +29,7 @@ hi StatusLine	ctermfg=7		ctermbg=238		cterm=none		guifg=#f6f3e8	guibg=#444444	gu
 hi VertSplit	ctermfg=243		ctermbg=234		cterm=none		guifg=#444444	guibg=#444444	gui=none
 hi StatusLineNC	ctermfg=243		ctermbg=238		cterm=none		guifg=#857b6f	guibg=#444444	gui=none
 hi LineNr		ctermfg=243		ctermbg=0		cterm=none		guifg=#857b6f	guibg=#000000	gui=none
+hi CursorLineNr									cterm=none
 hi SpecialKey	ctermfg=244		ctermbg=236		cterm=none		guifg=#808080	guibg=#343434	gui=none
 hi NonText		ctermfg=234		ctermbg=234		cterm=none		guifg=#808080	guibg=#303030	gui=none
 hi Conceal		ctermfg=172		ctermbg=234     cterm=bold		guifg=#8f8f8f	gui=italic
