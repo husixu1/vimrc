@@ -1,7 +1,5 @@
-"%%%%% DO NOT MODIFY THIS PART %%%%%%
 let g:System_='Linux'
-"let g:System_='Termux'
-"%%%%% ONLY COMMENT/ UNCOMMENT %%%%%%
+"let g:System_ = 'Termux'
 
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Plugin Settings %%%%%%%%%%%%%%%
@@ -25,7 +23,7 @@ endfunction this
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
         if g:System_ == 'Linux'
-            !python ./install.py --clang-completer --system-libclang --js-completer --java-completer
+            !python ./install.py --clangd-completer --js-completer --java-completer
         elseif g:System_ == 'Termux'
             !python ./install.py --clang-completer --system-libclang
         endif
@@ -63,6 +61,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'guns/xterm-color-table.vim'
 
 " visual -------------------
 " --------------- functional
@@ -79,7 +78,6 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') } "need compile if auto compile failed
-"Plug 'Valloric/YouCompleteMe', { 'frozen':1 , 'do': function('BuildYCM') } "need compile if auto compile failed
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 Plug 'haya14busa/incsearch.vim'
@@ -152,7 +150,7 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<S-k>', '<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_complete_in_comments = 1
 let g:ycm_confirm_extra_conf = 0
-" disables the check of ycm and uses syntastic insted
+" disables the check of ycm and use syntastic insted
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
@@ -162,8 +160,8 @@ let g:ycm_warning_symbol = "-⚠"
 
 " Add triggers to ycm for LaTeX-Box autocompletion
 let g:ycm_semantic_triggers = {
-\  'tex'  : ['{'],
-\ }
+            \  'tex'  : ['{'],
+            \ }
 
 "%%%%%%%%% UltiSnip %%%%%%%%%%%%%%%%%%%%%%%%%%
 set rtp+=~/.vim/custom
@@ -185,13 +183,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 "Uncomment this if termux does not support styling
 "if g:System_ == 'Linux'
-    let g:airline_powerline_fonts = 1
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols = {}
-    let g:airline_symbols.linenr = 'Ξ'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = 'Ξ'
 "elseif g:System_ == 'Termux'
 "    let g:airline_powerline_fonts = 0
 "    let g:airline_left_sep = ''
@@ -233,13 +231,13 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["asm", "tex"] }
+            \ "mode": "active",
+            \ "passive_filetypes": ["asm", "tex"] }
 "let g:syntastic_cpp_checkers=["cppcheck"]
 let g:syntastic_cpp_gcc_quiet_messages= {
-    \ "regex":  "No such file or directory" }
+            \ "regex":  "No such file or directory" }
 let g:syntastic_c_gcc_quiet_messages= {
-    \ "regex":  "No such file or directory" }
+            \ "regex":  "No such file or directory" }
 let g:syntastic_cuda_config_file = ".syntastic_cuda"
 let g:syntastic_c_config_file = ".syntastic_c"
 let g:syntastic_cpp_config_file = ".syntastic_cpp"
@@ -306,23 +304,23 @@ endfunction
 
 "%%%%%% Rainbow Parentheses %%%%%%%%%%%%%%%%%%
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['black',       'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+            \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
@@ -331,28 +329,28 @@ let g:DoxygenToolkit_commentType = "C++"
 
 "%%%%%% CtrlSF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:ctrlsf_mapping = {
-    \ "open"    : ["<CR>", "o"],
-    \ "openb"   : "O",
-    \ "split"   : "<C-O>",
-    \ "vsplit"  : "",
-    \ "tab"     : "t",
-    \ "tabb"    : "T",
-    \ "popen"   : "p",
-    \ "popenf"  : "P",
-    \ "quit"    : "q",
-    \ "next"    : "<C-J>",
-    \ "prev"    : "<C-K>",
-    \ "pquit"   : "q",
-    \ "loclist" : "",
-    \ "chgmode" : "M",
-    \ }
+            \ "open"    : ["<CR>", "o"],
+            \ "openb"   : "O",
+            \ "split"   : "<C-O>",
+            \ "vsplit"  : "",
+            \ "tab"     : "t",
+            \ "tabb"    : "T",
+            \ "popen"   : "p",
+            \ "popenf"  : "P",
+            \ "quit"    : "q",
+            \ "next"    : "<C-J>",
+            \ "prev"    : "<C-K>",
+            \ "pquit"   : "q",
+            \ "loclist" : "",
+            \ "chgmode" : "M",
+            \ }
 let g:ctrlsf_auto_close = {
-    \ "normal" : 1,
-    \ "compact": 1
-    \ }
+            \ "normal" : 1,
+            \ "compact": 1
+            \ }
 let g:ctrlsf_auto_focus = {
-    \ "at" : "start"
-    \ }
+            \ "at" : "start"
+            \ }
 let g:ctrlsf_default_view_mode = 'normal'
 
 "%%%%%% Livedown %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,18 +376,18 @@ let g:tex_flavor = 'latex'
 
 " let 'backend' be automatically detected here
 let g:vimtex_compiler_latexmk = {
-    \ 'background' : 1,
-    \ 'build_dir' : 'output',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+            \ 'background' : 1,
+            \ 'build_dir' : 'output',
+            \ 'callback' : 1,
+            \ 'continuous' : 1,
+            \ 'executable' : 'latexmk',
+            \ 'options' : [
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \ ],
+            \}
 let $TEXMFHOME = '/home/husixu/texmf'  "change to your texmf location for autocompletion
 
 "%%%%%% tex-conceal %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -397,6 +395,8 @@ let g:tex_conceal="abdgm"
 
 "%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 "%%%%%%%%% Protodef %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:protodefprotogetter = '~/.vim/custom/pullproto.pl'
@@ -431,9 +431,33 @@ set colorcolumn=80
 let g:load_doxygen_syntax = 1
 "let g:doxygen_enhanced_color = 1
 
+" determine current window class and set cursor shape accordingly
+if (has_key(environ(), 'DISPLAY') && !empty(get(environ(), 'DISPLAY')))
+            \ || (has_key(environ(), 'WAYLAND_DISPLAY') && !empty(get(environ(), 'WAYLAND_DISPLAY')))
+            \ && !empty(system('command -v xprop'))
+    let curWindowClass = system("xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) WM_CLASS")
+    if stridx(curWindowClass, '"Xfce4-terminal"') != -1
+        " works but performs badly
+        if has("autocmd")
+            au InsertEnter,InsertChange *
+                        \ if v:insertmode == 'i' |
+                        \   silent execute "!sed -i.bak -e 's/TERMINAL_CURSOR_SHAPE_.*/TERMINAL_CURSOR_SHAPE_IBEAM/' ~/.config/xfce4/terminal/terminalrc" |
+                        \ elseif v:insertmode == 'r' |
+                        \   silent execute "!sed -i.bak -e 's/TERMINAL_CURSOR_SHAPE_.*/TERMINAL_CURSOR_SHAPE_UNDERLINE/' ~/.config/xfce4/terminal/terminalrc" |
+                        \ endif
+            au InsertLeave,VimLeave * silent execute "!sed -i.bak -e 's/TERMINAL_CURSOR_SHAPE_.*/TERMINAL_CURSOR_SHAPE_BLOCK/' ~/.config/xfce4/terminal/terminalrc"
+        endif
+    else
+        " most modern terminal emulators are VTE-compatible
+        let &t_SI = "\<Esc>[6 q"
+        let &t_SR = "\<Esc>[4 q"
+        let &t_EI = "\<Esc>[2 q"
+    endif
+endif
+
+
 "%%%%%% Behaviour %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 syntax enable
-syntax on
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -447,6 +471,13 @@ set conceallevel=2
 set fileencodings=utf8,cp936,gb18030,big5
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
 set backspace=indent,eol,start
+
+" turn off syntax for diff mode only
+if &diff
+    syntax off
+else
+    syntax on
+endif
 
 " turn on english grammar checking for some file type
 autocmd FileType tex,markdown,text set spell
@@ -521,6 +552,7 @@ nnoremap <F3> :tabclose<CR>
 nnoremap <Leader>ji :YcmCompleter GoToInclude<CR>
 nnoremap <Leader>jD :YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>jj :YcmCompleter GoTo<CR>
 
 " ctag goto definition/declaration
 nnoremap <Leader><C-]> <C-w><C-]><C-w>T
@@ -592,20 +624,20 @@ if g:System_ == 'Linux'
     let g:input_toggle = 0
     " toggle to en when exit insert move
     function! Fcitx2en()
-       let s:input_status = system("fcitx-remote")
-       if s:input_status == 2
-          let g:input_toggle = 1
-          let l:a = system("fcitx-remote -c")
-       endif
+        let s:input_status = system("fcitx-remote")
+        if s:input_status == 2
+            let g:input_toggle = 1
+            let l:a = system("fcitx-remote -c")
+        endif
     endfunction
 
     " toggle to cn when enter insert mode
     function! Fcitx2zh()
-       let s:input_status = system("fcitx-remote")
-       if s:input_status != 2 && g:input_toggle == 1
-          let l:a = system("fcitx-remote -o")
-          let g:input_toggle = 0
-       endif
+        let s:input_status = system("fcitx-remote")
+        if s:input_status != 2 && g:input_toggle == 1
+            let l:a = system("fcitx-remote -o")
+            let g:input_toggle = 0
+        endif
     endfunction
 
     set ttimeoutlen=100
