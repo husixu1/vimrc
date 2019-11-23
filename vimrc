@@ -131,13 +131,15 @@ filetype plugin indent on  " required
 "%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 if g:System_ == 'Linux'
     let g:NERDTreeWinSize = 31
 elseif g:System_ == 'Termux'
     let g:NERDTreeWinSize = 21
 endif
-let g:NERDTreeDirArrowCollapsible = '▼'
-
+let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 "%%%%%%%%% YouCompleteMe %%%%%%%%%%%%%%%%%%%%%
 let g:ycm_global_ycm_extra_conf = '~/.vim/custom/.ycm_extra_conf.py'
@@ -393,11 +395,6 @@ let $TEXMFHOME = '/home/husixu/texmf'  "change to your texmf location for autoco
 "%%%%%% tex-conceal %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:tex_conceal="abdgm"
 
-"%%%%%%%%% NERDTree %%%%%%%%%%%%%%%%%%%%%%%%%%
-let g:polyglot_disabled = ['latex']  "remove latex-box to aovid conflict with vimtex
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_open_on_console_startup = 0
-
 "%%%%%%%%% Protodef %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:protodefprotogetter = '~/.vim/custom/pullproto.pl'
 
@@ -471,6 +468,9 @@ set conceallevel=2
 set fileencodings=utf8,cp936,gb18030,big5
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,Ls,:s,=s,l0,b0,g0,hs,N-s,E0,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0
 set backspace=indent,eol,start
+
+" always open help in new tab
+cabbrev h tab help
 
 " turn off syntax for diff mode only
 if &diff
