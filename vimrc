@@ -104,6 +104,9 @@ Plug 'craigemery/vim-autotag'                                   " needs ctags
 "Plug 'kshenoy/vim-signature'
 Plug 'alx741/vinfo'
 
+Plug 'junegunn/fzf' , { 'do': './install --no-key-bindings --no-completion --no-update-rc' }
+Plug 'junegunn/fzf.vim'
+
 " --------------- functional
 " language support ---------
 
@@ -260,6 +263,7 @@ let g:incsearch#magic = '\v' " very magic, but do not cause probablility problem
 "%%%%%% TagBar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:tagbar_left = 0
 let g:tagbar_iconchars = ['▶', '▼']
+let g:tagbar_sort = 0
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd BufEnter * nested :call tagbar#autoopen(1)
 
@@ -397,6 +401,9 @@ let g:tex_conceal="abdgm"
 
 "%%%%%%%%% Protodef %%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:protodefprotogetter = '~/.vim/custom/pullproto.pl'
+
+"%%%%%%%%% Fzf.vim %%%%%%%%%%%%%%%%%%%%%%%%%%%
+set rtp+=~/.vim/plugged/fzf/bin
 
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
