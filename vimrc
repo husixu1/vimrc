@@ -122,11 +122,12 @@ Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                " needs php in $
 "Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 Plug 'lervag/vimtex', {'for': 'tex,latex'}
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-"Plug 'vim-scripts/bash-support.vim'
+Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 " needs npm install -g livedown
 Plug 'sheerun/vim-polyglot'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'rhysd/vim-grammarous'                                     " natural language grammar checker
+Plug 'sukima/vim-tiddlywiki'                                    " tiddlywiki support
 
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -366,11 +367,13 @@ let g:ctrlsf_default_view_mode = 'normal'
 "let g:formatters_c = ['astyle']
 "let g:formatters_cpp = ['astyle']
 "let g:formatdef_astyle = '"astyle"'
+let g:autoformat_autoindent = 0                 " disable fallback to vim indent
+let g:formatdef_clang = '"clang-format -style=file"'
 let g:formatters_c = ['clang']
 let g:formatters_cpp = ['clang']
 let g:formatters_cuda = ['clang']
-let g:formatters = ['stylish-haskell']
-let g:formatdef_clang = '"clang-format -style=file"'
+let g:formatters_haskell = ['stylish-haskell']
+let g:formatters_bash = ['shfmt']
 
 "%%%%%% VimTex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 let g:vimtex_doc_handlers = ['VimTexDocHandler']
