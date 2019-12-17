@@ -62,6 +62,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'guns/xterm-color-table.vim'
+Plug 'kshenoy/vim-signature'
 
 " visual -------------------
 " --------------- functional
@@ -101,7 +102,6 @@ Plug 'dyng/ctrlsf.vim'                                          " needs ack inst
 "Plug 'ronakg/quickr-preview.vim'                               " cause ycm jump bug
 Plug 'vim-scripts/a.vim'
 Plug 'craigemery/vim-autotag'                                   " needs ctags
-"Plug 'kshenoy/vim-signature'
 Plug 'alx741/vinfo'
 
 Plug 'junegunn/fzf' , { 'do': './install --no-key-bindings --no-completion --no-update-rc' }
@@ -114,7 +114,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'derekwyatt/vim-protodef'                                  " needs perl, doesn't support template
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'mtscout6/vim-tagbar-css', { 'for': 'css' }
 Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                " needs php in $PATH
@@ -122,7 +122,7 @@ Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                " needs php in $
 "Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 Plug 'lervag/vimtex', {'for': 'tex,latex'}
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'vim-scripts/bash-support.vim'
+"Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 " needs npm install -g livedown
 Plug 'sheerun/vim-polyglot'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
@@ -330,6 +330,10 @@ let g:rbpt_colorpairs = [
             \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+
+"%%%%%% Vim-Signature %%%%%%%%%%%%%%%%%%%%%%%%
+let g:SignatureMarkTextHLDynamic = 1
+let g:SignaturePurgeConfirmation = 1
 
 "%%%%%% Doxygen Toolkit %%%%%%%%%%%%%%%%%%%%%%
 let g:DoxygenToolkit_commentType = "C++"
