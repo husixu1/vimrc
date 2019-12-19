@@ -113,6 +113,8 @@ Plug 'junegunn/fzf.vim'
 "Plug 'derekwyatt/vim-fswitch'                                   " vim-protodef dependency
 "Plug 'derekwyatt/vim-protodef'                                  " needs perl, doesn't support template
 
+Plug 'sheerun/vim-polyglot'                                     " |polyglot| multiple languages support
+
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
@@ -121,13 +123,12 @@ Plug 'lvht/tagbar-markdown', {'for': 'markdown'}                " needs php in $
 "Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 "Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex,latex'}
 Plug 'lervag/vimtex', {'for': 'tex,latex'}
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex,latex'}
 "Plug 'vim-scripts/bash-support.vim'
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                 " needs npm install -g livedown
-Plug 'sheerun/vim-polyglot'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'rhysd/vim-grammarous'                                     " natural language grammar checker
-Plug 'sukima/vim-tiddlywiki'                                    " tiddlywiki support
+Plug 'sukima/vim-tiddlywiki', { 'for' : 'tiddlywiki'}           " tiddlywiki support
 
 call plug#end()            " required
 filetype plugin indent on  " required
@@ -411,6 +412,9 @@ let g:protodefprotogetter = '~/.vim/custom/pullproto.pl'
 
 "%%%%%%%%% Fzf.vim %%%%%%%%%%%%%%%%%%%%%%%%%%%
 set rtp+=~/.vim/plugged/fzf/bin
+
+"%%%%%%%%% Vim-Polyglot %%%%%%%%%%%%%%%%%%%%%%
+let g:polyglot_disabled = ['markdown']
 
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 "%%%%%%%%% Vim Custom Settings %%%%%%%%%%%%%%%
