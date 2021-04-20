@@ -1,4 +1,5 @@
-<!--TODO maybe a demo? -->
+> Deprecated. Moved to https://github.com/husixu1/dotfiles-part.
+
 # ABOUT
 
 this is an vim config specified for Linux and Termux (an terminal simulator on Android and iOS)
